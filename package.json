@@ -1,0 +1,8 @@
+{
+  "name": "wallet-api-nodejs-sdk",
+  "version": "0.9.0",
+  "main": "./index.js",
+  "dependencies": {
+    "jsdoc": "^3.5.5"
+  }
+}
