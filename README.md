@@ -70,10 +70,10 @@ console.log(verifyKYC);
 { message: 'KYC already passed.' }
 ```
 ```js
-{ message: "Kyc started." }
+{ message: 'Kyc started.' }
 ```
 ```js
-{ message: "KYC already started." }
+{ message: 'KYC already started.' }
 ```
 </details>
 
@@ -214,5 +214,3 @@ console.log(transactionId);
 ```
 
 </details>
-
-![Views](http://hits.dwyl.io/jaggedsoft/node-binance-api.svg)
