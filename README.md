@@ -213,4 +213,25 @@ console.log(transactionId);
 { transaction_id: '09d0c0ae-2db3-4aca-9d37-106b93bbe892' }
 ```
 
+####  Transaction status
+```javascript
+const status = await routes.getTransactionStatus('09d0c0ae-2db3-4aca-9d37-106b93bbe892');
+console.log(status);
+```
+
+<details>
+ <summary>View Response</summary>
+
+```
+{ txId: null, state: 'confirmed' }
+```
+```
+{ txId: null, state: 'processing' }
+```
+```
+{ txId: null, state: 'unconfirmed' }
+```
+```
+{ txId: null, state: 'rejected' }
+```
 </details>
