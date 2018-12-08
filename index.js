@@ -1,8 +1,7 @@
 const { Celsius } = require("./lib/core");
-let config = {};
+const { AUTH_METHODS } = require('./lib/consts')
 
-config.authMethod = 'user-token';
-config.partnerKey = '';
-config.userSecret = 'd41d8cd98f00b204e9800998ecf8427e';
-
-let routes = Celsius(config);
+module.exports = {
+  Celsius,
+  AUTH_METHODS
+}

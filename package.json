@@ -6,7 +6,8 @@
     "test": "eslint lib/*"
   },
   "dependencies": {
-    "file-type": "^10.5.0"
+    "axios": "^0.18.0",
+    "form-data": "^2.3.3"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
