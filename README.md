@@ -10,7 +10,7 @@ npm install celsius-api --save
 ```javascript
 const { Celsius } = require("celsius");
 
-const routes = Celsius({
+const celsius = Celsius({
   authMethod = '<auth-method>',
   partnerKey = '<patner>',
   userSecret = '<user-secret>'
@@ -19,7 +19,7 @@ const routes = Celsius({
 
 #### Get KYC status
 ```js
-let status = await routes.getKycStatus();
+let status = await celsius.getKycStatus();
 console.log(status);
 ```
 
@@ -59,7 +59,7 @@ const files = {
   document_back_image: '<path>'
 };
 
-const verifyKYC = await routes.verifyKyc(userData, files);
+const verifyKYC = await celsius.verifyKyc(userData, files);
 console.log(verifyKYC);
 ```
 
@@ -79,7 +79,7 @@ console.log(verifyKYC);
 
 #### Getting list of current balances
 ```javascript
-const balance = await routes.getBalanceSummary();
+const balance = await celsius.getBalanceSummary();
 console.log(balance)
 ```
 <details>
@@ -101,7 +101,7 @@ console.log(balance)
 
 #### Get balance for coin
 ```javascript
-const balance = await routes.getCoinBalance('BTC');
+const balance = await celsius.getCoinBalance('BTC');
 console.log(balance);
 ```
 <details>
@@ -116,7 +116,7 @@ console.log(balance);
 
 #### Get transacion summary
 ```javascript
-const transactions = await routes.getTransacionSummary({
+const transactions = await celsius.getTransacionSummary({
   page: 1,
   perPage: 20
 });
@@ -148,7 +148,7 @@ console.log(transactions);
 
 #### Get coin transactions
 ```javascript
-const transactions = await routes.getCoinTransactions('BTC', {
+const transactions = await celsius.getCoinTransactions('BTC', {
   page: 1,
   perPage: 20
 });
@@ -179,7 +179,7 @@ console.log(transactions);
 
 ####  Get deposit address
 ```javascript
-const depositAddress = await routes.getDeposit('BTC');
+const depositAddress = await celsius.getDeposit('BTC');
 console.log(depositAddress);
 ```
 
@@ -202,7 +202,7 @@ const formFields = {
   address
 };
 
-const transactionId = await routes.withdraw(coin, formFields);
+const transactionId = await celsius.withdraw(coin, formFields);
 console.log(transactionId);
 ```
 
@@ -215,7 +215,7 @@ console.log(transactionId);
 
 ####  Transaction status
 ```javascript
-const status = await routes.getTransactionStatus('09d0c0ae-2db3-4aca-9d37-106b93bbe892');
+const status = await celsius.getTransactionStatus('09d0c0ae-2db3-4aca-9d37-106b93bbe892');
 console.log(status);
 ```
 
