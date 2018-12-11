@@ -1,7 +1,8 @@
 const { Celsius } = require("./lib/core");
-const { AUTH_METHODS } = require('./lib/consts')
+const { AUTH_METHODS, ENVIRONMENT } = require('./lib/consts')
 
 module.exports = {
   Celsius,
-  AUTH_METHODS
+  AUTH_METHODS,
+  ENVIRONMENT
 }

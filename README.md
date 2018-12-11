@@ -12,8 +12,9 @@ const { Celsius } = require("celsius");
 
 const celsius = Celsius({
   authMethod = '<auth-method>',
-  partnerKey = '<patner>',
-  userSecret = '<user-secret>'
+  partnerKey = '<partner-key>',
+  environment = '<environment>',
+  baseUrl = '<base-url>',
 });
 ```
 
@@ -116,7 +117,7 @@ console.log(balance);
 
 #### Get transacion summary
 ```javascript
-const transactions = await celsius.getTransacionSummary({
+const transactions = await celsius.getTransactionSummary({
   page: 1,
   perPage: 20
 });
