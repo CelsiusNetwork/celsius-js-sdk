@@ -88,14 +88,14 @@ console.log(balance)
 
 ```js
 {
-   ETH: 0,
-   BTC: '12',
-   BCH: 0,
-   LTC: 0,
-   XRP: 0,
-   XLM: 0,
-   OMG: 0,
-   CEL: 0
+  balance: {
+    eth: 0.9925,
+    btc: 0.00321568,
+    ltc: 2.332,
+    xrp: 0.01315,
+    omg: 0,
+    cel: 0.002
+  }
 }
 ```
 </details>
