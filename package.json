@@ -1,6 +1,6 @@
 {
-  "name": "celsius-js-sdk",
-  "version": "0.9.3",
+  "name": "celsius-sdk",
+  "version": "0.9.4",
   "author": {
     "name": "Celsius Network",
     "email": "",
