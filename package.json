@@ -1,6 +1,21 @@
 {
-  "name": "wallet-api-nodejs-sdk",
+  "name": "badoom-ts",
   "version": "0.9.0",
+  "author": {
+    "name": "Celsius Network",
+    "email": "",
+    "url": "https://celsius.network/"
+  },
+  "homepage": "https://github.com/CelsiusNetwork/celsius-js-sdk",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CelsiusNetwork/celsius-js-sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/CelsiusNetwork/celsius-js-sdk/issues",
+    "mail": ""
+  },
   "main": "./index.js",
   "scripts": {
     "test": "eslint lib/*"
