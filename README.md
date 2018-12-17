@@ -1,3 +1,8 @@
+[![NPM](https://nodei.co/npm/celsius-sdk.svg?compact=true)](https://nodei.co/npm/celsius-sdk/)
+
+[![CircleCI](https://circleci.com/gh/CelsiusNetwork/celsius-js-sdk/tree/master.svg?style=svg)](https://circleci.com/gh/CelsiusNetwork/celsius-js-sdk/tree/master)
+
+
 # Node Celsius API
 This project is designed to help you make your own projects that interact with the Celsius API.
 

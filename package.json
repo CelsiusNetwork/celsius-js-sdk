@@ -6,7 +6,7 @@
     "email": "",
     "url": "https://celsius.network/"
   },
-  "homepage": "https://github.com/CelsiusNetwork/celsius-js-sdk",
+  "homepage": "https://celsius.network",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
