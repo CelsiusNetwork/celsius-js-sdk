@@ -3,3 +3,5 @@
 dist/
 *.log
 node_modules/
+docs/_site/
+docs/jsdoc/
