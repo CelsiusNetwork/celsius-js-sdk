@@ -9,15 +9,15 @@
 }
 
 .main-content {
-  background-color: #777F86;
+  color: #777F86;
 
   h1, h2, h3, h4, h5 {
-    background-color: #3D4853;
+    color: #3D4853;
   }
 
   a {
     &, &:link, &:visited, &:hover, &:focus, &:active {
-      background-color: #4156A6;
+      color: #4156A6;
       text-decoration: none;
     }
   }
