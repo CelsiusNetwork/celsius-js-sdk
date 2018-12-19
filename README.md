@@ -42,6 +42,3 @@ Steps:
 1. Develop your feature in the `feature/<feature-name>` branch.
 2. Create a pull request from your branch to the `develop`.
 3. Once accepted, your feature will go live in the next release.
-
-
-

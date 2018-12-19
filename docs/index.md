@@ -14,7 +14,7 @@ When consulting technical docs please make sure that you are looking at the part
 
 | Actions | Institutional partner | Whitelabel | API partner  |
 | ------: | :-------------------: | :--------: | :----------: |
-| Deposit funds | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> |
+| Deposit & withdraw funds | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> |
 | Earn interest | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> |
 | Transparently create Celsius wallets for your users | <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#f85757;">❌</span> |
 | Run KYC checks on your users | <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#f85757;">❌</span> | 
