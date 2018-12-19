@@ -1,12 +1,15 @@
 ![API Partner Overview](/assets/images/api-partner.svg)
+{% raw %}
+<h1 style="display: none;">API Partner</h1>
+{% endraw %}
 
-# Use case
+## Use case
 
 Celsius API Partner partnership type is perfect for integrating existing Celsius Network users to third-party applications.
 
 Using user-generated API Keys from within the Celsius Network mobile app, the partner application can interface the Celsius API on the behalf of the user. 
 
-## Features
+### Features
 
 Partner can access only endpoints for which the user provided permissions during api-key creation.
 
@@ -22,17 +25,17 @@ Depending on what the user allowed for when creating the API key, following perm
 - ***Withdraw***
 > Grants partner the ability to withdraw funds from user’s wallet to another address.
 
-# Getting started
+## Getting started
 
 Consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#83677182-2cc9-4198-b574-77ad0862237b) for the API Partner. 
 
-## Security
+### Security
 
 1. Partner receives a **partner-token** from Celsius Network that will be used to authenticate that partner on Celsius API.
 2. Partner shows instructions to his users in their app, prompting them to generate API keys from the Celsius Network application and paste them to the partner application. Users must open a Celsius Network account with the official Celsius app and pass KYC to be able to generate API keys. 
 3. Partner uses user generated API key to authenticate users on Celsius API and use Celsius features on their behalf.
 
-## Initializing the SDK
+### Initializing the SDK
 
 Initialize SDK in the following way:
 
@@ -47,13 +50,13 @@ const celsius = Celsius({
 })
 
 ```
-## Wallet actions
+### Wallet actions
 
 After initializing SDK, you can perform following actions:
 
 > `user.celsiusApiKey` is the API key that the user entered into your application on whose behalf you are using Celsius API.
 
-### Get balance for all currencies
+#### Get balance for all currencies
 ```javascript
 celsius.getBalanceSummary(user.celsiusApiKey).then((balanceSummary) => {
     console.log(balanceSummary)
@@ -62,7 +65,7 @@ celsius.getBalanceSummary(user.celsiusApiKey).then((balanceSummary) => {
     console.log(error)
 })
 ```
-### Get balance for a single currency
+#### Get balance for a single currency
 ```javascript
 const coin = 'BTC'
 
@@ -73,7 +76,7 @@ celsius.getCoinBalance(coin, user.celsiusApiKey).then((balanceSummary) => {
     console.log(error)
 })
 ```
-### Get paginated list of transactions for all currencies 
+#### Get paginated list of transactions for all currencies 
 ```javascript
 const pagination = {
   page: 1,
@@ -87,7 +90,7 @@ celsius.getTransctionSummary(pagination, user.celsiusApiKey).then((transactions)
     console.log(error)
 })
 ```
-### Get paginated list of transactions for a single currency
+#### Get paginated list of transactions for a single currency
 ```javascript
 const coin = 'BTC'
 const pagination = {
@@ -102,7 +105,7 @@ celsius.getCoinTransactions(coin, pagination, user.celsiusApiKey).then((transact
     console.log(error)
 })
 ```
-### Get address of a wallet for a specific currency
+#### Get address of a wallet for a specific currency
 ```javascript
 const coin = 'BTC'
 
@@ -113,7 +116,7 @@ celsius.getDeposit(coin, user.celsiusApiKey).then((address) => {
     console.log(error)
 })
 ```
-### Withdraw funds to an address:
+#### Withdraw funds to an address
 ```javascript
 const coin = 'BTC'
 const formFields = {
@@ -128,7 +131,7 @@ celsius.withdraw(coin, formFields, user.celsiusApiKey).then((transactionId) => {
     console.log(error)
 })
 ```
-### Get status of a transaction:
+#### Get status of a transaction
 
 > `transactionId` is returned by the withdraw call and is used for monitoring the status of that transaction on the blockchain.
 ```javascript
