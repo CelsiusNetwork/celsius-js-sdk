@@ -6,10 +6,15 @@
 .page-header {
   background-color: #4156A6;
   background-image: none;
+
+  .project-name, .logo {
+    cursor: pointer
+  }
 }
 
 .main-content {
   color: #777F86;
+  padding: 0;
 
   h1, h2, h3, h4, h5 {
     color: #3D4853;
@@ -20,5 +25,14 @@
       color: #4156A6;
       text-decoration: none;
     }
+  }
+}
+
+.btn {
+  border-radius: 2rem;
+
+  &.small {
+    padding: 0rem 1rem;
+    background-color: inherit;
   }
 }

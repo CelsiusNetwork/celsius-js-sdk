@@ -18,7 +18,9 @@
   },
   "main": "./index.js",
   "scripts": {
-    "test": "eslint lib/*"
+    "test": "eslint lib/*",
+    "jsdoc": "jsdoc -r -c ./docs/jsdoc/config.json",
+    "swagger": ""
   },
   "dependencies": {
     "axios": "^0.18.0",
