@@ -13,13 +13,11 @@ The institutional partnership offer partners the ability to use Celsius Network 
 3. Partner creates a **user-token** for themselves which is then used to authenticate them on Celsius API
 4. Each request sent to the Celsius API is followed by the partner and user tokens (authenticating the partner).
 
-## 
-
-##Initializing SDK
+## Initializing SDK
 
 Initialize SDK in the following way:
 
-```
+```javascript
 const { Celsius, AUTH_METHODS, ENVIRONMENT } = require('index')
 const partnerKey = PARTNER_TOKEN
 
@@ -35,7 +33,7 @@ const celsius = Celsius({
 After initializing SDK, partner can perform following actions:
 
 #### Get balance for all currencies
-```
+```javascript
 const userSecret = USER_TOKEN
 
 celsius.getBalanceSummary(userSecret).then((balanceSummary) => {
@@ -46,7 +44,7 @@ celsius.getBalanceSummary(userSecret).then((balanceSummary) => {
 })
 ```
 #### Get balance for a single currency
-```
+```javascript
 const coin = 'BTC'
 const userSecret = USER_TOKEN
 
@@ -58,7 +56,7 @@ celsius.getCoinBalance(coin, userSecret).then((balanceSummary) => {
 })
 ```
 #### Get paginated list of transactions for all currencies 
-```
+```javascript
 const pagination = {
   page: 1,
   perPage: 20
@@ -73,7 +71,7 @@ celsius.getTransctionSummary(pagination, userSecret).then((transactions) => {
 })
 ```
 #### Get paginated list of transactions for a single currency
-```
+```javascript
 const coin = 'BTC'
 const pagination = {
   page: 1,
@@ -89,7 +87,7 @@ celsius.getCoinTransactions(coin, pagination, userSecret).then((transactions) =>
 })
 ```
 #### Get address of a wallet for a currency
-```
+```javascript
 const coin = 'BTC'
 const userSecret = USER_TOKEN
 
@@ -101,7 +99,7 @@ celsius.getDeposit(coin, userSecret).then((address) => {
 })
 ```
 #### Withdraw funds to an address
-```
+```javascript
 const coin = 'BTC'
 const formFields = {
     address: DESTINATION_ADDRESS,
@@ -117,7 +115,7 @@ celsius.withdraw(coin, formFields, userSecret).then((transactionId) => {
 })
 ```
 #### Get status of a transaction
-```
+```javascript
 const transaction = TRANSACTION_ID
 const userSecret = USER_TOKEN
 
