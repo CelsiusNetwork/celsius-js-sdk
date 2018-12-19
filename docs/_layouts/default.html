@@ -12,31 +12,6 @@
     </script>
     {% endif %}
     <meta charset="UTF-8">
-
-    <script>
-      function setIframeHeight(id, timeout) {
-        setTimeout(function() {
-          var ifrm = document.getElementById(id);
-          var doc = ifrm.contentDocument? ifrm.contentDocument:
-              ifrm.contentWindow.document;
-          ifrm.style.visibility = 'hidden';
-          ifrm.style.height = "10px"; // reset to minimal height ...
-          // IE opt. for bing/msn needs a bit added or scrollbar appears
-          ifrm.style.height = getDocHeight( doc ) + 4 + "px";
-          ifrm.style.visibility = 'visible';
-        }, timeout)
-      }
-
-      function getDocHeight(doc) {
-        doc = doc || document;
-        // stackoverflow.com/questions/1145850/
-        var body = doc.body, html = doc.documentElement;
-        var height = Math.max( body.scrollHeight, body.offsetHeight,
-            html.clientHeight, html.scrollHeight, html.offsetHeight );
-        return height;
-      }
-    </script>
-
     {% seo %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
@@ -48,8 +23,8 @@
     <img onclick="window.location='/'" class="logo" src="/assets/images/cel-logo.svg" alt="Logo">
     <h1 class="project-name" onclick="window.location='/'">{{ site.title | default: site.github.repository_name }}</h1>
     <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
-    <a href="/api-docs.html" class="btn">🌍 View API Docs</a>
-    <a href="/sdk-docs.html" class="btn">🗎 View SDK Docs</a>
+    <a href="/swagger" target="_blank" class="btn">Swagger Docs</a>
+    <a href="/jsdoc" target="_blank" class="btn">SDK Docs</a>
     {% if site.github.is_project_page %}
     <a href="{{ site.github.repository_url }}" class="btn">View SDK GitHub</a>
     {% endif %}
@@ -58,6 +33,7 @@
     <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
     {% endif %}
     <div>
+        <h2 class="project-tagline">Use cases:</h2>
         <a href="/whitelabel-partner.html" class="btn small">Whitelabel partner walkthrough</a>
         <a href="/institutional-partner.html" class="btn small">Institutional partner walkthrough</a>
         <a href="/api-partner.html" class="btn small">API partner walkthrough</a>
@@ -67,7 +43,8 @@
 <main id="content" class="main-content" role="main">
     {{ content }}
 
-    <footer class="site-footer">
+    <footer class="site-footer" style="margin-top: 5rem;">
+        <a href="/">Back to Home.</a>
         {% if site.github.is_project_page %}
         <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
         {% endif %}

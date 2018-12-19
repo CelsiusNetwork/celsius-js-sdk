@@ -14,7 +14,7 @@
 
 .main-content {
   color: #777F86;
-  padding: 0;
+  padding: 5rem 0;
 
   h1, h2, h3, h4, h5 {
     color: #3D4853;
@@ -32,7 +32,7 @@
   border-radius: 2rem;
 
   &.small {
-    padding: 0rem 1rem;
+    padding: 0.5rem 1rem;
     background-color: inherit;
   }
 }
