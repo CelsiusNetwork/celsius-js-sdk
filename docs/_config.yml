@@ -1,4 +1,5 @@
 github: [metadata]
+title: "Celsius API"
 encoding: UTF-8
 kramdown:
   input: GFM
