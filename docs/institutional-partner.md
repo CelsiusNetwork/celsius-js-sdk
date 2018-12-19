@@ -1,3 +1,5 @@
+![Institutional Partner Overview](/assets/images/institutional-partner.svg)
+
 # Institutional Partner
 
 ## Overview

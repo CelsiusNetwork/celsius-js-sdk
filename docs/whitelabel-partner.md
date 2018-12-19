@@ -1,3 +1,5 @@
+![Whitelabel Partner Overview](/assets/images/whitelabel.svg)
+
 # Whitelabel
 
 ## Overview

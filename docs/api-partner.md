@@ -1,3 +1,5 @@
+![API Partner Overview](/assets/images/api-partner.svg)
+
 **Api-key partner**
 
 User creates an api-key in Celsius app which he then uses to authorize partner’s application to interact with Celsius on their behalf (they don’t get a separate account).

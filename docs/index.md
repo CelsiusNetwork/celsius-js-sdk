@@ -1,3 +1,5 @@
+![Celsius API Overview](/assets/images/overview.svg)
+
 # What is Celsius API?
 
 Celsius API 
@@ -12,7 +14,6 @@ Celsius Partner API provides tools for partners that enable them to easily integ
 
 [Browse the SDK API docs](/jsdoc/index.html)
 
-![Celsius API Overview](/assets/images/overview.svg)
 
 Depending on the specific plan of integration, there are different methods of integrating with Celsius Network.
 When consulting technical docs please make sure that you are looking at the partnership type relevant to you. 
