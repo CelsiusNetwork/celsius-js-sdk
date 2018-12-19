@@ -5,14 +5,14 @@
 
 ## Use case
 
-The Institutional Partner API offers partners the ability to use Celsius Network's features as a legal entity rather than as a user. This provides the benefits and features of Celsius Network to be accessed through the API rather than from a mobile app. 
+The Institutional Partner API offers partners the ability to use Celsius features as a legal entity rather than as a user. This allows partners to reap the benefits and features of Celsius Network that to be accessed through the API rather than from a mobile app. 
 
 ### Features
 
 - ***Deposits & withdrawals***
-> Partner can do deposits and withdrawals of cryptocurrencies to the Celsius account to start earning interest.
-- ***Balance & tranaction checking***
-> Partner can check their account balances and transaction statuses on different blockchains.
+> Partners can deposit and withdraw any cryptocurrencies supported by Celsius to designated account to start earning interest.
+- ***Balance & transaction checking***
+> Partner can check their account balances and transaction statuses across different blockchains.
 
 ## Getting started
 
@@ -20,9 +20,9 @@ Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695
 
 ### Security
 
-1. Partners receive a **partner-token** and the **api-key** from Celsius Network that will be used to authenticate that partner on Celsius API.
-2. Each request sent to the Celsius API is followed by the partner token and api key to successfully authenticate the partner.
-3. Responses sent back from the Celsius API will be signed using Celsius Network's private key, and will be automatically verified on the SDK receiving end with the hardcoded public key. 
+1. Each partner will receive a **partner-token** and the **api-key** from Celsius Network that will be used to authenticate that partner on Celsius API.
+2. Each request sent to the Celsius API is followed by the partner token and API key to successfully authenticate the partner.
+3. Responses sent back from the Celsius API will be signed using Celsius Network's private key, and will automatically be verified on the SDK receiving end with the hardcoded public key. 
 
 ### Initializing the SDK
 
