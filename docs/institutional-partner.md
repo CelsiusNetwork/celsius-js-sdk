@@ -1,19 +1,25 @@
 ![Institutional Partner Overview](/assets/images/institutional-partner.svg)
 
-# Institutional Partner
+# Use case
 
-## Overview
+The Institutional Partner API offers partners the ability to use Celsius Network features as a legal entity rather then as a user. This means that the benefits and features of Celsius Network can be accessed through the API rather than from a mobile app. 
 
-The institutional partnership offer partners the ability to use Celsius Network features as a legal entity rather then as a user.
+# Features
 
-## Getting started
+- ***Deposits & withdrawals***
+> Partner can do deposits and withdrawals of cryptocurrencies to the Celsius account to start earning interest.
+- ***Balance & tranaction checking***
+> Partner can check their account balances and transaction statuses on different blockchains.
 
-1. Partner and Celsius Network become partners
-2. Partner receives a **partner-token** that will be used to authenticate that partner on Celsius API
-3. Partner creates a **user-token** for themselves which is then used to authenticate them on Celsius API
-4. Each request sent to the Celsius API is followed by the partner and user tokens (authenticating the partner).
+# Getting started
 
-## Initializing SDK
+## Security
+
+1. Partner receives a **partner-token** and the **api-key** from Celsius Network that will be used to authenticate that partner on Celsius API.
+2. Each request sent to the Celsius API is followed by the partner token and api key to successfully authenticate the partner.
+3. Each response sent back from the Celsius API will be signed using Celsius Network's private key, and will be automatically verified on the SDK receiving end with the hardcoded public key. 
+
+## Initializing the SDK
 
 Initialize SDK in the following way:
 
