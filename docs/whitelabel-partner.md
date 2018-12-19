@@ -1,12 +1,15 @@
 ![Whitelabel Partner Overview](/assets/images/whitelabel.svg)
+{% raw %}
+<h1 style="display: none;">Whitelabel Partner</h1>
+{% endraw %}
 
-# Use case
+## Use case
 
 The Whitelabel API offers partners a way to transparently give their existing users access to Celsius Network features. 
 
 The partner can use the Celsius Network on behalf of their existing or new users, regardless of whether those users are already a part of the Celsius Network, as users created through the Whitelabel partner API will be completely independent from the Celsius Network application users.
 
-## Features
+### Features
 
 - ***KYC Checking***
 > Partner must perform KYC checks through Celsius for the users to be able to deposit.
@@ -15,17 +18,17 @@ The partner can use the Celsius Network on behalf of their existing or new users
 - ***Balance & tranaction checking***
 > Partner's users can check their account balances and transaction statuses on different blockchains.
 
-# Getting started
+## Getting started
 
 Consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#31c70317-92dd-4e68-a5db-ea16a81121fa) for the Whitelabel API. 
 
-## Security
+### Security
 
 1. Partner receives a **partner-token** from Celsius Network that will be used to authenticate that partner on Celsius API.
 2. Each request Partner sends for his user must be accompanied by a unique **user-token** for that user. User token is used to differentiate different partner's users on the Celsius API.
 3. Each response sent back from the Celsius API will be signed using Celsius Network's private key, and will be automatically verified on the SDK receiving end with the hardcoded public key. 
 
-## Initializing the SDK
+### Initializing the SDK
 
 Initialize SDK in the following way:
 
@@ -45,11 +48,11 @@ const celsius = Celsius({
 >
 > `userToken` will be sent with every API call to differentiate between different users you might have.
 
-## KYC actions
+### KYC actions
 
 After initializing the SDK, and before you can deposit/withdraw funds and start earning interest on behalf of your user, you need to KYC verify the user using the Celsius API.
 
-### Get current KYC status
+#### Get current KYC status
 
 ```javascript
 celsius.getKycStatus(userToken).then((status) => {
@@ -60,7 +63,7 @@ celsius.getKycStatus(userToken).then((status) => {
 }
 ```
 
-### Run a KYC check
+#### Run a KYC check
 
 ```javascript
 const userData = {
@@ -84,11 +87,11 @@ const verifyKYC = celsius.verifyKyc(userData, documents, userToken);
 
 ```
 
-## Wallet actions
+### Wallet actions
 
 After initializing SDK, you can perform following actions:
 
-### Get balance for all currencies
+#### Get balance for all currencies
 ```javascript
 celsius.getBalanceSummary(userToken).then((balanceSummary) => {
     console.log(balanceSummary)
@@ -97,7 +100,7 @@ celsius.getBalanceSummary(userToken).then((balanceSummary) => {
     console.log(error)
 })
 ```
-### Get balance for a single currency
+#### Get balance for a single currency
 ```javascript
 const coin = 'BTC'
 
@@ -108,7 +111,7 @@ celsius.getCoinBalance(coin, userToken).then((balanceSummary) => {
     console.log(error)
 })
 ```
-### Get paginated list of transactions for all currencies 
+#### Get paginated list of transactions for all currencies 
 ```javascript
 const pagination = {
   page: 1,
@@ -122,7 +125,7 @@ celsius.getTransctionSummary(pagination, userToken).then((transactions) => {
     console.log(error)
 })
 ```
-### Get paginated list of transactions for a single currency
+#### Get paginated list of transactions for a single currency
 ```javascript
 const coin = 'BTC'
 const pagination = {
@@ -137,7 +140,7 @@ celsius.getCoinTransactions(coin, pagination, userToken).then((transactions) => 
     console.log(error)
 })
 ```
-### Get address of a wallet for a specific currency
+#### Get address of a wallet for a specific currency
 ```javascript
 const coin = 'BTC'
 
@@ -148,7 +151,7 @@ celsius.getDeposit(coin, userToken).then((address) => {
     console.log(error)
 })
 ```
-### Withdraw funds to an address:
+#### Withdraw funds to an address
 ```javascript
 const coin = 'BTC'
 const formFields = {
@@ -164,7 +167,7 @@ celsius.withdraw(coin, formFields, userToken).then((transactionId) => {
     console.log(error)
 })
 ```
-### Get status of a transaction:
+#### Get status of a transaction
 ```javascript
 // transactionId is returned by the withdraw call
 

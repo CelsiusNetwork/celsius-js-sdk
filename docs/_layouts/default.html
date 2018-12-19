@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 </head>
 <body>
+<a href="https://github.com/CelsiusNetwork/celsius-js-sdk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 <header class="page-header" role="banner">
     <img onclick="window.location='/'" class="logo" src="/assets/images/cel-logo.svg" alt="Logo">
     <h1 class="project-name" onclick="window.location='/'">{{ site.title | default: site.github.repository_name }}</h1>
@@ -42,6 +43,11 @@
 </header>
 
 <main id="content" class="main-content" role="main">
+    {% if page.url != "/index.html" and page.url != '/'  %}
+    <h1>Table of contents:</h1>
+    {% include toc.html html=content %}
+    {% endif %}
+
     {{ content }}
 
     <footer class="site-footer" style="margin-top: 5rem;">
