@@ -2,18 +2,11 @@
 
 # What is Celsius API?
 
-Celsius API 
+Celsius API offers Celsius Network's partners to use the features of the Celsius Network or delegate access to Celsius to their users.
 
-[Browse the REST API docs](/swagger/index.html)
+To get started with the Celsius API, first look at different partnership types we are currently offering.
 
-# Celsius JavaScript SDK
-
-Celsius JavaScript SDK provides an easy and secure way to communicate with the Celsius Partner API.
-
-Celsius Partner API provides tools for partners that enable them to easily integrate their existing applications with the features of the Celsius Network.
-
-[Browse the SDK API docs](/jsdoc/index.html)
-
+# Partnership types
 
 Depending on the specific plan of integration, there are different methods of integrating with Celsius Network.
 When consulting technical docs please make sure that you are looking at the partnership type relevant to you. 
@@ -29,6 +22,6 @@ When consulting technical docs please make sure that you are looking at the part
 | | [Open docs](/institutional-partner.html) | [Open docs](/whitelabel-partner.html) | [Open docs](/api-partner.html) |
 
 
-## Becoming a partner
+# Becoming a partner
 
 To become a partner, please contact Leah Jonas <[leah@celsius.network](mailto://leah@celsius.network)>.
