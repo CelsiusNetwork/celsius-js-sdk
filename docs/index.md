@@ -1,15 +1,15 @@
 ![Celsius API Overview](/assets/images/overview.svg)
 
-# What is Celsius API?
+# What is the Celsius API?
 
-Celsius API offers Celsius Network's partners to use the features of the Celsius Network or delegate access to Celsius to their users.
+The Celsius API offers partners the ability to use features offered by Celsius Network or delegate access to Celsius' features.
 
-To get started with the Celsius API, first look at different partnership types we are currently offering.
+To get started with the Celsius API, please review our partnership types offered below and choose the option that best suits your needs. 
 
 # Partnership types
 
-Depending on the specific plan of integration, there are different methods of integrating with Celsius Network.
-When consulting technical docs please make sure that you are looking at the partnership type relevant to you. 
+Depending upon your specific integration needs, there are multiple different ways in which your project can utilize the Celsius Network API.
+When consulting technical docs please make sure that you are looking at the partnership type that is relevant to you.
 
 
 | Actions | Institutional partner | Whitelabel | API partner  |
@@ -24,4 +24,4 @@ When consulting technical docs please make sure that you are looking at the part
 
 # Becoming a partner
 
-To become a partner, please contact Leah Jonas <[leah@celsius.network](mailto://leah@celsius.network)>.
+To become a partner, please contact Leah Jonas at [leah@celsius.network](mailto://leah@celsius.network).

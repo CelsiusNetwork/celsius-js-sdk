@@ -5,7 +5,7 @@
 
 ## Use case
 
-The Institutional Partner API offers partners the ability to use Celsius Network features as a legal entity rather then as a user. This means that the benefits and features of Celsius Network can be accessed through the API rather than from a mobile app. 
+The Institutional Partner API offers partners the ability to use Celsius Network's features as a legal entity rather than as a user. This provides the benefits and features of Celsius Network to be accessed through the API rather than from a mobile app. 
 
 ### Features
 
@@ -16,13 +16,13 @@ The Institutional Partner API offers partners the ability to use Celsius Network
 
 ## Getting started
 
-Consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#62562199-0dce-4fd8-b8e6-a3440fc60a7f) for the Institutional Partner API. 
+Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#62562199-0dce-4fd8-b8e6-a3440fc60a7f) for the Institutional Partner API. 
 
 ### Security
 
-1. Partner receives a **partner-token** and the **api-key** from Celsius Network that will be used to authenticate that partner on Celsius API.
+1. Partners receive a **partner-token** and the **api-key** from Celsius Network that will be used to authenticate that partner on Celsius API.
 2. Each request sent to the Celsius API is followed by the partner token and api key to successfully authenticate the partner.
-3. Each response sent back from the Celsius API will be signed using Celsius Network's private key, and will be automatically verified on the SDK receiving end with the hardcoded public key. 
+3. Responses sent back from the Celsius API will be signed using Celsius Network's private key, and will be automatically verified on the SDK receiving end with the hardcoded public key. 
 
 ### Initializing the SDK
 
