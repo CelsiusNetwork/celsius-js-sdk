@@ -4,3 +4,6 @@ dist/
 *.log
 node_modules/
 docs/_site/
+yarn.lock
+package-lock.json
+npm-shrinkwrap.json
