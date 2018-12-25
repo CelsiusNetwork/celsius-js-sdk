@@ -142,7 +142,7 @@
     
 
     
-    <h4 class="name" id=".getBalanceSummary"><span class="type-signature">(static) </span>getBalanceSummary<span class="signature">(userSecret)</span><span class="type-signature"> &rarr; {<a href="global.html#BalanceResponse">BalanceResponse</a>}</span></h4>
+    <h4 class="name" id=".getBalanceSummary"><span class="type-signature">(static) </span>getBalanceSummary<span class="signature">(userSecret)</span><span class="type-signature"> &rarr; {<a href="global.html#BalanceResponse">BalanceResponse</a>|Error}</span></h4>
     
 
     
@@ -243,7 +243,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line120">line 120</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line131">line 131</a>
     </li></ul></dd>
     
 
@@ -270,9 +270,28 @@
 
         
 <div class="param-desc">
-    <ul>
-<li>Contains balances for all currencies.</li>
-</ul>
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Error name</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">Required user secret and partner key and permission</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid response</td>
+<td style="text-align:left">Signature failed verification</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid partner</td>
+<td style="text-align:left">Non existent partner</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -284,6 +303,9 @@
     <dd>
         
 <span class="param-type"><a href="global.html#BalanceResponse">BalanceResponse</a></span>
+|
+
+<span class="param-type">Error</span>
 
 
     </dd>
@@ -425,7 +447,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line132">line 132</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line148">line 148</a>
     </li></ul></dd>
     
 
@@ -449,10 +471,35 @@
 
 
 <h5>Returns:</h5>
-<ul>
-        <li>
+
+        
 <div class="param-desc">
-    <p>Contains balances for a single coin (in that coin and in usd).</p>
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Error name</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">Required user secret and partner key and permission</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid response</td>
+<td style="text-align:left">Signature failed verification</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid partner</td>
+<td style="text-align:left">Non existent partner</td>
+</tr>
+<tr>
+<td style="text-align:left">Coin not supported</td>
+<td style="text-align:left">Coin requested isn't yet supported by us</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -464,28 +511,15 @@
     <dd>
         
 <span class="param-type">BalanceForCoinResponse</span>
+|
 
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
 <span class="param-type">Error</span>
 
 
     </dd>
 </dl>
-</li>
-    </ul>
+
+    
 
 
 
@@ -645,7 +679,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line163">line 163</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line188">line 188</a>
     </li></ul></dd>
     
 
@@ -669,12 +703,35 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
 
 
 <h5>Returns:</h5>
-<ul>
-        <li>
+
+        
 <div class="param-desc">
-    <ul>
-<li>Response contains a pagination header and an array of transactions.</li>
-</ul>
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Error name</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">Required user secret and partner key and permission</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid response</td>
+<td style="text-align:left">Signature failed verification</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid partner</td>
+<td style="text-align:left">Non existent partner</td>
+</tr>
+<tr>
+<td style="text-align:left">Coin not supported</td>
+<td style="text-align:left">Coin requested isn't yet supported by us</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -686,28 +743,15 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     <dd>
         
 <span class="param-type">TransactionResponse</span>
+|
 
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
 <span class="param-type">Error</span>
 
 
     </dd>
 </dl>
-</li>
-    </ul>
+
+    
 
 
 
@@ -719,7 +763,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
 
     
-    <h4 class="name" id=".getDeposit"><span class="type-signature">(static) </span>getDeposit<span class="signature">(userSecret, coin)</span><span class="type-signature"> &rarr; {string|Error}</span></h4>
+    <h4 class="name" id=".getDeposit"><span class="type-signature">(static) </span>getDeposit<span class="signature">(userSecret, coin)</span><span class="type-signature"> &rarr; {Error}</span></h4>
     
 
     
@@ -843,7 +887,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line180">line 180</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line210">line 210</a>
     </li></ul></dd>
     
 
@@ -867,28 +911,41 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
 
 
 <h5>Returns:</h5>
-<ul>
-        <li>
+
+        
 <div class="param-desc">
-    <p>Deposit address.</p>
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Error name</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">Required user secret and partner key and permission</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid response</td>
+<td style="text-align:left">Signature failed verification</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid partner</td>
+<td style="text-align:left">Non existent partner</td>
+</tr>
+<tr>
+<td style="text-align:left">Coin not supported</td>
+<td style="text-align:left">Coin requested isn't yet supported by us</td>
+</tr>
+<tr>
+<td style="text-align:left">KYC not passed</td>
+<td style="text-align:left">You have to pass KYC to perform this action</td>
+</tr>
+</tbody>
+</table>
 </div>
 
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
 
 
 <dl>
@@ -902,8 +959,8 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
 
     </dd>
 </dl>
-</li>
-    </ul>
+
+    
 
 
 
@@ -1042,8 +1099,33 @@ pass KYC before creating api keys.</p>
 
 
 <h5>Returns:</h5>
-<ul>
-        <li>
+
+        
+<div class="param-desc">
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Error name</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">Required user secret and partner key and permission</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid response</td>
+<td style="text-align:left">Signature failed verification</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid partner</td>
+<td style="text-align:left">Non existent partner</td>
+</tr>
+</tbody>
+</table>
+</div>
+
 
 
 <dl>
@@ -1053,28 +1135,15 @@ pass KYC before creating api keys.</p>
     <dd>
         
 <span class="param-type"><a href="global.html#KYCStatus">KYCStatus</a></span>
+|
 
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
 <span class="param-type">Error</span>
 
 
     </dd>
 </dl>
-</li>
-    </ul>
+
+    
 
 
 
@@ -1210,7 +1279,7 @@ pass KYC before creating api keys.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line211">line 211</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line259">line 259</a>
     </li></ul></dd>
     
 
@@ -1407,7 +1476,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line147">line 147</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line168">line 168</a>
     </li></ul></dd>
     
 
@@ -1431,12 +1500,31 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
 
 
 <h5>Returns:</h5>
-<ul>
-        <li>
+
+        
 <div class="param-desc">
-    <ul>
-<li>Response contains a pagination header and an array of transactions.</li>
-</ul>
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Error name</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">Required user secret and partner key and permission</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid response</td>
+<td style="text-align:left">Signature failed verification</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid partner</td>
+<td style="text-align:left">Non existent partner</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -1448,28 +1536,15 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     <dd>
         
 <span class="param-type">TransactionResponse</span>
+|
 
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
 <span class="param-type">Error</span>
 
 
     </dd>
 </dl>
-</li>
-    </ul>
+
+    
 
 
 
@@ -1481,7 +1556,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
 
     
-    <h4 class="name" id=".verifyKyc"><span class="type-signature">(static) </span>verifyKyc<span class="signature">(userSecret, userData, documents)</span><span class="type-signature"> &rarr; {string|error}</span></h4>
+    <h4 class="name" id=".verifyKyc"><span class="type-signature">(static) </span>verifyKyc<span class="signature">(userSecret, userData, documents)</span><span class="type-signature"> &rarr; {Error}</span></h4>
     
 
     
@@ -1628,7 +1703,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line104">line 104</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line109">line 109</a>
     </li></ul></dd>
     
 
@@ -1652,10 +1727,39 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
 
 
 <h5>Returns:</h5>
-<ul>
-        <li>
+
+        
 <div class="param-desc">
-    <p>Ok</p>
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Error name</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">Required user secret and partner key and permission</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid response</td>
+<td style="text-align:left">Signature failed verification</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid partner</td>
+<td style="text-align:left">Non existent partner</td>
+</tr>
+<tr>
+<td style="text-align:left">Kyc passed</td>
+<td style="text-align:left">KYC already passed</td>
+</tr>
+<tr>
+<td style="text-align:left">Kyc started</td>
+<td style="text-align:left">You already sent KYC request</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -1666,29 +1770,13 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type">Error</span>
 
 
     </dd>
 </dl>
-</li>
+
     
-        <li>
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">error</span>
-
-
-    </dd>
-</dl>
-</li>
-    </ul>
 
 
 
@@ -1700,7 +1788,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
 
     
-    <h4 class="name" id=".withdraw"><span class="type-signature">(static) </span>withdraw<span class="signature">(coin, formFields, userSecret)</span><span class="type-signature"> &rarr; {string|Error}</span></h4>
+    <h4 class="name" id=".withdraw"><span class="type-signature">(static) </span>withdraw<span class="signature">(coin, formFields, userSecret)</span><span class="type-signature"> &rarr; {Error}</span></h4>
     
 
     
@@ -1847,7 +1935,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line195">line 195</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line231">line 231</a>
     </li></ul></dd>
     
 
@@ -1871,28 +1959,65 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
 
 
 <h5>Returns:</h5>
-<ul>
-        <li>
+
+        
 <div class="param-desc">
-    <p>Transaction id.</p>
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Error name</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Unauthorized</td>
+<td style="text-align:left">Required user secret and partner key and permission</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid response</td>
+<td style="text-align:left">Signature failed verification</td>
+</tr>
+<tr>
+<td style="text-align:left">Invalid partner</td>
+<td style="text-align:left">Non existent partner</td>
+</tr>
+<tr>
+<td style="text-align:left">Coin not supported</td>
+<td style="text-align:left">Coin requested isn't yet supported by us</td>
+</tr>
+<tr>
+<td style="text-align:left">KYC not passed</td>
+<td style="text-align:left">You have to pass KYC to perform this action</td>
+</tr>
+<tr>
+<td style="text-align:left">Bad address format</td>
+<td style="text-align:left">Bad address format</td>
+</tr>
+<tr>
+<td style="text-align:left">Dusk check</td>
+<td style="text-align:left">You cannot withdraw less than 1$</td>
+</tr>
+<tr>
+<td style="text-align:left">Duplicate withdraw request</td>
+<td style="text-align:left">You have pending request with the same amount and outgoing address. Please make sure that the first transaction is confirmed before continuing</td>
+</tr>
+<tr>
+<td style="text-align:left">Insufficient funds</td>
+<td style="text-align:left">Insufficient funds.</td>
+</tr>
+<tr>
+<td style="text-align:left">Withdrawal limits hit</td>
+<td style="text-align:left">Withdrawal limits hit</td>
+</tr>
+<tr>
+<td style="text-align:left">Daily withdrawal limits hit</td>
+<td style="text-align:left">Daily withdrawal limits hit</td>
+</tr>
+</tbody>
+</table>
 </div>
 
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-</li>
-    
-        <li>
 
 
 <dl>
@@ -1906,8 +2031,8 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
 
     </dd>
 </dl>
-</li>
-    </ul>
+
+    
 
 
 
@@ -2088,7 +2213,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Dec 19 2018 17:08:34 GMT+0100 (CET)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 24 2018 16:40:13 GMT+0100 (CET)
 </footer>
 
 <script> prettyPrint(); </script>
