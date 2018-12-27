@@ -1,10 +1,10 @@
 declare module "celsius-sdk" {
     interface CelsiusConfigurations {
-        staging: Partial<CelsiusConfiguratioInstance>;
-        production: Partial<CelsiusConfiguratioInstance>;
+        staging: Partial<CelsiusConfigurationInstance>;
+        production: Partial<CelsiusConfigurationInstance>;
     }
 
-    interface CelsiusConfiguratioInstance {
+    interface CelsiusConfigurationInstance {
         /** Base URL of the Celsius API */
         baseUrl?: string;
         /** Public key required for preventing man-in-the-middle attacks */
@@ -18,9 +18,17 @@ declare module "celsius-sdk" {
     }
 
     interface CelsiusBalanceSummaryResponse {
+        /** Contains user's balance per coin. **/
         balance: {
             [key: string]: number
         }
+    }
+
+    interface CelsiusPaginationOptions {
+        /** Page to retrieve. If left empty, defaults to first page.**/
+        page?: number;
+        /** How many records are shown per page. If left empty, defaults to 20 records.**/
+        per_page?: number;
     }
 
     interface CelsiusPagination {
@@ -89,17 +97,41 @@ declare module "celsius-sdk" {
     }
 
     interface KycStatus {
-        status: string;
+        status: 'PENDING' | 'COMPLETED' | 'PASSED' | 'REJECTED';
     }
 
     interface CelsiusSupportedCurrencies {
+        /** Short names of currencies **/
         currencies: string[]
+    }
+
+    interface CelsiusKycUserData {
+        first_name: string;
+        last_name: string;
+        middle_name?: string;
+        title?: 'mr' | 'ms' | 'mrs';
+        /** ISO-8601 date string **/
+        date_of_birth: string;
+        /** ISO-3166-1 country short names **/
+        citizenship: string;
+        gender: 'male' | 'female' | 'other';
+        /** E.123 international notation phone **/
+        phone_number: string;
+        document_type: 'passport' | 'national_id' | 'drivers_license';
+    }
+
+    interface CelsiusKycFiles {
+        /** Path to the file. **/
+        document_front_image: string;
+        /** Path to the file. **/
+        document_back_image: string;
     }
 
     interface CelsiusInstance {
         currencies: string[];
         getKycStatus(userSecret: string): Promise<KycStatus>;
-        verifyKyc(userData: any, documents: any, userSecret: string): Promise<any>;
+        verifyKyc(userData: CelsiusKycUserData, documents: CelsiusKycFiles, userSecret: string): Promise<any>;
+        getSupportedCurrencies(): Promise<CelsiusSupportedCurrencies>;
         getBalanceSummary(userSecret: string): Promise<CelsiusBalanceSummaryResponse>;
         getCoinBalance(coin: string, userSecret: string): Promise<CelsiusCoinBalanceResponse>;
         getTransactionSummary(pagination: CelsiusPagination, userSecret: string): Promise<CelsiusTransactionSummary>;
@@ -107,7 +139,6 @@ declare module "celsius-sdk" {
         getDeposit(coin: string, userSecret: string): Promise<{address: string}>;
         withdraw(coin: string, formFields: CelsiusWithdrawOptions, userSecret: string): Promise<{transaction_id: string}>;
         getTransactionStatus(transaction: string, userSecret: string): Promise<CelsiusWithdrawalTransaction>;
-        getSupportedCurrencies(): Promise<CelsiusSupportedCurrencies>;
     }
 
     export enum AUTH_METHODS {
@@ -120,5 +151,5 @@ declare module "celsius-sdk" {
         PRODUCTION = 'production'
     }
 
-    export function Celsius(config: CelsiusConfiguratioInstance): Promise<CelsiusInstance>;
+    export function Celsius(config: CelsiusConfigurationInstance): Promise<CelsiusInstance>;
 }
