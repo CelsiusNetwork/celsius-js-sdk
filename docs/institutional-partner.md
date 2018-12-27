@@ -33,16 +33,27 @@ const { Celsius, AUTH_METHODS, ENVIRONMENT } = require('celsius-sdk')
 const partnerKey = process.env.PARTNER_TOKEN // Should be kept secret
 const apiKey = process.env.API_KEY // Should be kept secret, can be regenerated
 
-const celsius = Celsius({
+Celsius({
     authMethod: AUTH_METHODS.API_KEY, // We are telling the SDK that we are authenticating using a combination of an API key and a Partner token
     partnerKey: partnerKey,
     environment: ENVIRONMENT.staging // If not present, default is production.
+}).then((celsius) => {
+  // your code
 })
 
 ```
 ### Wallet actions
 
 After initializing SDK, you can perform following actions:
+
+#### Refresh currently supported currencies
+```javascript
+celsius.getSupportedCurrencies().then((currencies) => {
+  console.log(currencies) // or console.log(celsius.currencies)
+}).catch((error) => {
+  console.log(error)
+})
+```
 
 #### Get balance for all currencies
 ```javascript
