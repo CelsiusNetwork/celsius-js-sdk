@@ -21,6 +21,16 @@ When consulting technical docs please make sure that you are looking at the part
 | Use Celsius on behalf of existing Celsius users | <span style="color:#f85757;">❌</span> |  <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> |
 | | [Open docs](/institutional-partner.html) | [Open docs](/whitelabel-partner.html) | [Open docs](/api-partner.html) |
 
+# Withdrawal schemes
+
+Depending on the partner needs, there are different methods for limiting which addresses funds can be withdrawn to.
+
+| Withdrawal Scheme                   | Description |
+| ----------------------------------: | :---------: |
+| No address                          | Funds cannot be withdrawn to any address |
+| Origin address of the first deposit | Funds can be withdrawn only to the origin address of  the first deposit |
+| List of pre-approved addresses      | Funds can be withdrawn only to a list of pre-approved addresses |
+| Any address                         | Funds can be withdrawn to any address |
 
 # Becoming a partner
 
