@@ -25,6 +25,8 @@ Depending on what the user permissions granted when the API key is created, foll
 - ***Withdraw***
 > Grants partner the ability to withdraw funds from user’s wallet to another wallet address.
 
+[Click here to view how to generate API Key.](/createAPIKey.html) 
+
 ## Getting started
 
 Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#83677182-2cc9-4198-b574-77ad0862237b) for the API Partner. 
