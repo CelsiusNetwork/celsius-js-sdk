@@ -120,5 +120,5 @@ declare module "celsius-sdk" {
         PRODUCTION = 'production'
     }
 
-    export function Celsius(config: CelsiusConfiguratioInstance): CelsiusInstance;
+    export function Celsius(config: CelsiusConfiguratioInstance): Promise<CelsiusInstance>;
 }
