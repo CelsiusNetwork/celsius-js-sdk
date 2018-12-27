@@ -19,24 +19,7 @@ declare module "celsius-sdk" {
 
     interface CelsiusBalanceSummaryResponse {
         balance: {
-            /** Bitcoin Balance */
-            btc: number;
-            /** Bitcoin Cash Balance */
-            bch: number;
-            /** Celsius Balance */
-            cel: number;
-            /** Ethereum balance */
-            eth: number;
-            /** Litecoin balance */
-            ltc: number;
-            /** OmniGo balance */
-            omg: number;
-            /** Lumen balance */
-            xml: number;
-            /** Riple balance */
-            xrp: number;
-            /** 0x balance */
-            zrx: number;
+            [key: string]: number
         }
     }
 
@@ -109,7 +92,12 @@ declare module "celsius-sdk" {
         status: string;
     }
 
+    interface CelsiusSupportedCurrencies {
+        currencies: string[]
+    }
+
     interface CelsiusInstance {
+        currencies: string[];
         getKycStatus(userSecret: string): Promise<KycStatus>;
         verifyKyc(userData: any, documents: any, userSecret: string): Promise<any>;
         getBalanceSummary(userSecret: string): Promise<CelsiusBalanceSummaryResponse>;
@@ -119,6 +107,7 @@ declare module "celsius-sdk" {
         getDeposit(coin: string, userSecret: string): Promise<{address: string}>;
         withdraw(coin: string, formFields: CelsiusWithdrawOptions, userSecret: string): Promise<{transaction_id: string}>;
         getTransactionStatus(transaction: string, userSecret: string): Promise<CelsiusWithdrawalTransaction>;
+        getSupportedCurrencies(): Promise<CelsiusSupportedCurrencies>;
     }
 
     export enum AUTH_METHODS {
