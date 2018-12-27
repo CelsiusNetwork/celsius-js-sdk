@@ -7,6 +7,7 @@
     "url": "https://celsius.network/"
   },
   "homepage": "https://celsius.network",
+  "typings": "./index.d.ts",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
