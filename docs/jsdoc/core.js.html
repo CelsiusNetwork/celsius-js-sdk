@@ -77,7 +77,7 @@ const { HttpClient } = require('./http-client')
  */
 
 /**
- * @typedef {object} Celsius
+ * @typedef {object} CelsiusInstance
  * @property {function} getKycStatus - Method for sending GET requests
  * @property {function} verifyKyc - Method for sending POST requests. Data is transmitted using multipart/form-data
  */
@@ -92,7 +92,7 @@ const { HttpClient } = require('./http-client')
  * @function
  * @param {object} config - Config has partner key, auth method and user secret.
  *
- * @returns {Celsius}
+ * @returns {Promise&lt;CelsiusInstance>}
  */
 const Celsius = function (config) {
   let defaultConfig = CONFIG[config.environment]
@@ -111,7 +111,14 @@ const Celsius = function (config) {
 
   const httpClient = HttpClient(config)
 
-  return {
+  const CelsiusInstance = {
+    /**
+     * Contains supported currencies. To refresh, call getSupportedCurrencies method.
+     * @memberOf module:celsius-js-sdk/core
+     * @member {String[]} currencies
+     *
+     */
+    currencies: null,
 
     /**
      * Returns KYC status for the given user.
@@ -122,8 +129,13 @@ const Celsius = function (config) {
      * @function getKycStatus
      * @param userSecret {string} - Represents a secret value used to uniquely identify users. Can be user-token or api-key
      *
-     * @returns {KYCStatus}
-     * @returns {Error}
+     * @returns {KYCStatus | Error}
+     *
+     * Error name | Description
+     * :--------------- | :----------
+     * Unauthorized | Required user secret and partner key and permission
+     * Invalid response | Signature failed verification
+     * Invalid partner| Non existent partner
      */
     getKycStatus: function (userSecret) {
       return httpClient.get(PATHS.KYC, null, userSecret)
@@ -138,11 +150,32 @@ const Celsius = function (config) {
      * @param userData {UserData} - Represents user's personal information.
      * @param documents {Documents} - Images of user's documents.
      *
-     * @returns {string} Ok
-     * @returns {error}
+     * @returns {Error}
+     * Error name | Description
+     * :--------------- | :----------
+     * Unauthorized | Required user secret and partner key and permission
+     * Invalid response | Signature failed verification
+     * Invalid partner| Non existent partner
+     * Kyc passed | KYC already passed
+     * Kyc started | You already sent KYC request
      */
     verifyKyc: function (userData, documents, userSecret) {
       return httpClient.post(PATHS.KYC, userData, documents, userSecret)
+    },
+
+    /**
+     * Returns currently supported currencies and refreshes currencies property of this CelsiusInstance.
+     *
+     * @memberOf module:celsius-js-sdk/core
+     * @function getSupportedCurrencies
+     *
+     * @returns {String[]}
+     */
+    getSupportedCurrencies: function () {
+      return httpClient.get(PATHS.SUPPORTED_CURRENCIES, null, null).then((currencies) => {
+        this.currencies = currencies.currencies
+        return currencies
+      })
     },
 
     /**
@@ -151,7 +184,12 @@ const Celsius = function (config) {
      * @memberOf module:celsius-js-sdk/core
      * @function getBalanceSummary
      * @param userSecret {string} - Represents a secret value used to uniquely identify users. Can be user-token or api-key.
-     * @returns {BalanceResponse} - Contains balances for all currencies.
+     * @returns {BalanceResponse | Error}
+     * Error name | Description
+     * :--------------- | :----------
+     * Unauthorized | Required user secret and partner key and permission
+     * Invalid response | Signature failed verification
+     * Invalid partner| Non existent partner
      */
     getBalanceSummary: function (userSecret) {
       return httpClient.get(PATHS.BALANCE_SUMMARY, null, userSecret)
@@ -165,8 +203,13 @@ const Celsius = function (config) {
      * @param userSecret {string} - Represents a secret value used to uniquely identify users. Can be user-token or api-key.
      * @param coin {string} - Coin for which to get balance.
      *
-     * @returns {BalanceForCoinResponse} Contains balances for a single coin (in that coin and in usd).
-     * @return {Error}
+     * @returns {BalanceForCoinResponse | Error}
+     * Error name | Description
+     * :--------------- | :----------
+     * Unauthorized | Required user secret and partner key and permission
+     * Invalid response | Signature failed verification
+     * Invalid partner| Non existent partner
+     * Coin not supported | Coin requested isn't yet supported by us
      */
     getCoinBalance: function (coin, userSecret) {
       return httpClient.get(PATHS.COIN_BALANCE(coin), null, userSecret)
@@ -181,8 +224,12 @@ const Celsius = function (config) {
      * @param userSecret {string} - Represents a secret value used to uniquely identify users. Can be user-token or api-key.
      * @param pagination {PaginationConfig} - Pagination configuration (Which page to get and how many results per page).
      *
-     * @return {TransactionResponse} - Response contains a pagination header and an array of transactions.
-     * @return {Error}
+     * @returns {TransactionResponse | Error}
+     * Error name | Description
+     * :--------------- | :----------
+     * Unauthorized | Required user secret and partner key and permission
+     * Invalid response | Signature failed verification
+     * Invalid partner| Non existent partner
      */
     getTransactionSummary: function (pagination, userSecret) {
       return httpClient.get(PATHS.TRANSACTIONS_SUMMARY, pagination, userSecret)
@@ -198,8 +245,13 @@ const Celsius = function (config) {
      * @param pagination {PaginationConfig} - Pagination configuration (Which page to get and how many results per page).
      * @param coin {string} - Coin for which to get transactions.
      *
-     * @returns {TransactionResponse} - Response contains a pagination header and an array of transactions.
-     * @return {Error}
+     * @returns {TransactionResponse | Error}
+     * Error name | Description
+     * :--------------- | :----------
+     * Unauthorized | Required user secret and partner key and permission
+     * Invalid response | Signature failed verification
+     * Invalid partner| Non existent partner
+     * Coin not supported | Coin requested isn't yet supported by us
      */
     getCoinTransactions: function (coin, pagination, userSecret) {
       return httpClient.get(PATHS.COIN_TRANSACTIONS(coin), pagination, userSecret)
@@ -213,8 +265,14 @@ const Celsius = function (config) {
      * @param userSecret {string} Represents a secret value used to uniquely identify users. Can be user-token or api-key.
      * @param coin {string} Coin for which to get deposit address.
      *
-     * @returns {string} Deposit address.
      * @returns {Error}
+     * Error name | Description
+     * :--------------- | :----------
+     * Unauthorized | Required user secret and partner key and permission
+     * Invalid response | Signature failed verification
+     * Invalid partner| Non existent partner
+     * Coin not supported | Coin requested isn't yet supported by us
+     * KYC not passed | You have to pass KYC to perform this action
      */
     getDeposit: function (coin, userSecret) {
       return httpClient.get(PATHS.DEPOSIT(coin), null, userSecret)
@@ -229,8 +287,20 @@ const Celsius = function (config) {
      * @param formFields {WithdrawalFields} - Contains amount to withdraw and and address that amount is to be withdrawn to.
      * @param userSecret {string} Represents a secret value used to uniquely identify users. Can be user-token or api-key.
      *
-     * @returns {string} Transaction id.
      * @returns {Error}
+     * Error name | Description
+     * :--------------- | :----------
+     * Unauthorized | Required user secret and partner key and permission
+     * Invalid response | Signature failed verification
+     * Invalid partner| Non existent partner
+     * Coin not supported | Coin requested isn't yet supported by us
+     * KYC not passed | You have to pass KYC to perform this action
+     * Bad address format | Bad address format
+     * Dusk check | You cannot withdraw less than 1$
+     * Duplicate withdraw request | You have pending request with the same amount and outgoing address. Please make sure that the first transaction is confirmed before continuing
+     * Insufficient funds | Insufficient funds.
+     * Withdrawal limits hit | Withdrawal limits hit
+     * Daily withdrawal limits hit | Daily withdrawal limits hit
      */
     withdraw: function (coin, formFields, userSecret) {
       return httpClient.post(PATHS.WITHDRAW(coin), formFields, null, userSecret)
@@ -251,6 +321,10 @@ const Celsius = function (config) {
       return httpClient.get(PATHS.TRANSACTION_STATUS(transaction), null, userSecret)
     }
   }
+
+  return CelsiusInstance.getSupportedCurrencies().then(() => {
+    return CelsiusInstance
+  })
 }
 
 module.exports = {
@@ -272,7 +346,7 @@ module.exports = {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Dec 19 2018 17:08:34 GMT+0100 (CET)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Dec 26 2018 16:54:06 GMT+0100 (CET)
 </footer>
 
 <script> prettyPrint(); </script>
