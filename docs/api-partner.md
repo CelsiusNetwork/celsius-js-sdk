@@ -25,6 +25,8 @@ Depending on what the user permissions granted when the API key is created, foll
 - ***Withdraw***
 > Grants partner the ability to withdraw funds from user’s wallet to another wallet address.
 
+[Click here to view how to generate API Key.](/createAPIKey.html) 
+
 ## Getting started
 
 Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#83677182-2cc9-4198-b574-77ad0862237b) for the API Partner. 
@@ -44,10 +46,12 @@ Initialize SDK in the following way:
 const { Celsius, AUTH_METHODS, ENVIRONMENT } = require('celsius-sdk')
 const partnerKey = process.env.PARTNER_TOKEN // Should be kept secret
 
-const celsius = Celsius({
+Celsius({
     authMethod: AUTH_METHODS.API_KEY, // We are telling the SDK that we are authenticating using a combination of different user API keys and a Partner token
     partnerKey: partnerKey,
     environment: ENVIRONMENT.staging // If not present, default is production.
+}).then((celsius) => {
+  // your code
 })
 
 ```
@@ -56,6 +60,15 @@ const celsius = Celsius({
 After initializing SDK, you can perform following actions:
 
 > `user.celsiusApiKey` is the API key that the user entered into your application on whose behalf you are using Celsius API.
+
+#### Refresh currently supported currencies
+```javascript
+celsius.getSupportedCurrencies().then((currencies) => {
+  console.log(currencies) // or console.log(celsius.currencies)
+}).catch((error) => {
+  console.log(error)
+})
+```
 
 #### Get balance for all currencies
 ```javascript

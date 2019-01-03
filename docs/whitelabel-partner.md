@@ -37,10 +37,12 @@ Initialize SDK in the following way:
 const { Celsius, AUTH_METHODS, ENVIRONMENT } = require('celsius-sdk')
 const partnerKey = process.env.PARTNER_TOKEN // Should be kept secret
 
-const celsius = Celsius({
+Celsius({
     authMethod: AUTH_METHODS.USER_TOKEN, // We are telling the SDK that we are authenticating different users using user tokens.
     partnerKey: partnerKey,
     environment: ENVIRONMENT.staging // If not present, default is production.
+}).then((celsius) => {
+  // your code
 })
 
 ```
@@ -91,6 +93,15 @@ const verifyKYC = celsius.verifyKyc(userData, documents, userToken);
 ### Wallet actions
 
 After initializing SDK, you can perform following actions:
+
+#### Refresh currently supported currencies
+```javascript
+celsius.getSupportedCurrencies().then((currencies) => {
+  console.log(currencies) // or console.log(celsius.currencies)
+}).catch((error) => {
+  console.log(error)
+})
+```
 
 #### Get balance for all currencies
 ```javascript
