@@ -151,5 +151,15 @@ declare module "celsius-sdk" {
         PRODUCTION = 'production'
     }
 
+    export enum AUTH_METHODS {
+        API_KEY = 'api-key',
+        USER_TOKEN = 'user-token',
+    }
+
+    export enum ENVIRONMENT {
+        STAGING = 'staging',
+        PRODUCTION = 'production'
+    }
+
     export function Celsius(config: CelsiusConfigurationInstance): Promise<CelsiusInstance>;
 }
