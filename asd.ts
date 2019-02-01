@@ -205,5 +205,15 @@ declare module "celsius-sdk" {
         changeWithdrawalAddress(id: string, data: object, userSecret: string): Promise<UserWithdrawalAddress>;
     }
 
+    export enum AUTH_METHODS {
+        API_KEY = 'api-key',
+        USER_TOKEN = 'user-token',
+    }
+
+    export enum ENVIRONMENT {
+        STAGING = 'staging',
+        PRODUCTION = 'production'
+    }
+
     export function Celsius(config: CelsiusConfigurationInstance): Promise<CelsiusInstance>;
 }
