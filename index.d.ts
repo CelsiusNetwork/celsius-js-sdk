@@ -127,6 +127,67 @@ declare module "celsius-sdk" {
         document_back_image: string;
     }
 
+    interface BackofficePaginationOptions {
+        page?: number;
+        limit?: number;
+        email?: string;
+        name?: string;
+        orderBy?: string;
+        direction?: string;
+    }
+
+    interface User {
+        id: string;
+        auth0_user_id: string;
+        email: string;
+        pin: string;
+        first_name: string;
+        last_name: string;
+        company_name: string;
+        country: string;
+        twitter_id: string;
+        facebook_id: string;
+        google_id: string;
+        referral_link_id: string;
+        twitter_screen_name: string;
+        two_factor_secret: string;
+        profile_picture: string;
+        api_token: string;
+        phone_number: string;
+        citizenship: string;
+        note: string;
+        sms_verification_code: string;
+        partner_id: string;
+        blocked_reason: string;
+        two_factor_enabled: boolean;
+        phone_contacts_connected: boolean;
+        whitelisted_by_location: boolean;
+        twitter_friends_connected: boolean;
+        facebook_friends_connected: boolean;
+        expo_push_tokens: object;
+        metadata: object;
+        session_invalid_before: Date;
+        created_at: Date;
+        updated_at: Date;
+        blocked_at: Date;
+        kyc_status: KycStatus;
+    }
+
+    interface UserMetadataResponse {
+        message: 'User`s metadata has been updated';
+    }
+
+    interface UserWithdrawalAddress {
+        user_id: string;
+        coin: string;
+        bitgo_wallet_id: string;
+        address: string;
+        manually_set: boolean;
+        created_at: string;
+        updated_at: string;
+        version: number;
+    }
+
     interface CelsiusInstance {
         currencies: string[];
         getKycStatus(userSecret: string): Promise<KycStatus>;
@@ -139,16 +200,9 @@ declare module "celsius-sdk" {
         getDeposit(coin: string, userSecret: string): Promise<{address: string}>;
         withdraw(coin: string, formFields: CelsiusWithdrawOptions, userSecret: string): Promise<{transaction_id: string}>;
         getTransactionStatus(transaction: string, userSecret: string): Promise<CelsiusWithdrawalTransaction>;
-    }
-
-    export enum AUTH_METHODS {
-        API_KEY = 'api-key',
-        USER_TOKEN = 'user-token',
-    }
-
-    export enum ENVIRONMENT {
-        STAGING = 'staging',
-        PRODUCTION = 'production'
+        getUsers(pagination: BackofficePaginationOptions, userSecret: string): Promise<User[]>;
+        changeMetadata(id: string, data: object, userSecret: string): Promise<UserMetadataResponse>;
+        changeWithdrawalAddress(id: string, data: object, userSecret: string): Promise<UserWithdrawalAddress>;
     }
 
     export function Celsius(config: CelsiusConfigurationInstance): Promise<CelsiusInstance>;
