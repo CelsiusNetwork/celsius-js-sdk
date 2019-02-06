@@ -17,6 +17,16 @@ declare module "celsius-sdk" {
         environment: ENVIRONMENT;
     }
 
+    export enum AUTH_METHODS {
+        API_KEY = 'api-key',
+        USER_TOKEN = 'user-token',
+    }
+
+    export enum ENVIRONMENT {
+        STAGING = 'staging',
+        PRODUCTION = 'production'
+    }
+
     interface CelsiusBalanceSummaryResponse {
         /** Contains user's balance per coin. **/
         balance: {
@@ -127,7 +137,7 @@ declare module "celsius-sdk" {
         document_back_image: string;
     }
 
-    interface BackofficePaginationOptions {
+    interface PaginationOptions {
         page?: number;
         limit?: number;
         email?: string;
@@ -177,6 +187,10 @@ declare module "celsius-sdk" {
         message: 'User`s metadata has been updated';
     }
 
+    interface UserCreateResponse {
+        message: 'User has been created';
+    }
+
     interface UserWithdrawalAddress {
         user_id: string;
         coin: string;
@@ -186,6 +200,30 @@ declare module "celsius-sdk" {
         created_at: string;
         updated_at: string;
         version: number;
+    }
+
+    interface UsersResponse {
+        users: {
+            total: number,
+            results: User[]
+        }
+    }
+
+    interface WithdrawalAddress {
+        short: string,
+        address: string
+    }
+
+    interface InstitutionalUser {
+        companyName: string;
+        email: string;
+        country: string;
+        state?: string;
+        taxNumber?: number;
+        contactPerson: string;
+        contactEmail: string;
+        note?: string;
+        withdrawalWallets: WithdrawalAddress[];
     }
 
     interface CelsiusInstance {
@@ -200,9 +238,10 @@ declare module "celsius-sdk" {
         getDeposit(coin: string, userSecret: string): Promise<{address: string}>;
         withdraw(coin: string, formFields: CelsiusWithdrawOptions, userSecret: string): Promise<{transaction_id: string}>;
         getTransactionStatus(transaction: string, userSecret: string): Promise<CelsiusWithdrawalTransaction>;
-        getUsers(pagination: BackofficePaginationOptions, userSecret: string): Promise<User[]>;
+        getUsers(pagination: PaginationOptions, userSecret: string): Promise<UsersResponse>;
         changeMetadata(id: string, data: object, userSecret: string): Promise<UserMetadataResponse>;
-        changeWithdrawalAddress(id: string, data: object, userSecret: string): Promise<UserWithdrawalAddress>;
+        changeWithdrawalAddress(id: string, data: WithdrawalAddress, userSecret: string): Promise<UserWithdrawalAddress>;
+        createUser(user: InstitutionalUser, userSecret: string): Promise<UserCreateResponse>
     }
 
     export function Celsius(config: CelsiusConfigurationInstance): Promise<CelsiusInstance>;
