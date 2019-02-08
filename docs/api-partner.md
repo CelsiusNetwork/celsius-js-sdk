@@ -156,3 +156,12 @@ celsius.getTransactionStatus(transactionId, user.celsiusApiKey).then((status) =>
     console.log(error)
 })
 ```
+### Obtaining coins for testing
+
+| Coin name     | Coin Type | Faucet    |
+| ------------- | ----------| --------- |
+| Bitcoin       | TBTC      | [https://bitcoinfaucet.uo1.net/](https://bitcoinfaucet.uo1.net/) | 
+| Bitcoin Cash  | TBCH      | [https://developer.bitcoin.com/faucets/bch/](https://developer.bitcoin.com/faucets/bch/) | 
+| Bitcoin Gold  | TBTG      | [https://test-faucet.bitcoingold.org/](https://test-faucet.bitcoingold.org/) |
+| Ethereum      | TETH      | [https://faucet.kovan.network/](https://faucet.kovan.network/) |
+| Litecoin      | TLTC      | [http://testnet.litecointools.com/](http://testnet.litecointools.com/) |
