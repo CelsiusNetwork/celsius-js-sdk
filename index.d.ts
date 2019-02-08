@@ -17,16 +17,6 @@ declare module "celsius-sdk" {
         environment: ENVIRONMENT;
     }
 
-    export enum AUTH_METHODS {
-        API_KEY = 'api-key',
-        USER_TOKEN = 'user-token',
-    }
-
-    export enum ENVIRONMENT {
-        STAGING = 'staging',
-        PRODUCTION = 'production'
-    }
-
     interface CelsiusBalanceSummaryResponse {
         /** Contains user's balance per coin. **/
         balance: {
@@ -242,6 +232,22 @@ declare module "celsius-sdk" {
         changeMetadata(id: string, data: object, userSecret: string): Promise<UserMetadataResponse>;
         changeWithdrawalAddress(id: string, data: WithdrawalAddress, userSecret: string): Promise<UserWithdrawalAddress>;
         createUser(user: InstitutionalUser, userSecret: string): Promise<UserCreateResponse>
+        getInterestRates(): Promise<InterestRates>
+    }
+
+    interface InterestRates {
+        interestRates: {
+            coin: string;
+            rate: string;
+            currency: Currency;
+        }
+    }
+
+    interface Currency {
+        id: number;
+        name: string;
+        short: string;
+        image_url: string;
     }
 
     export enum AUTH_METHODS {

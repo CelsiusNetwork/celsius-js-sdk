@@ -63,7 +63,7 @@ celsius.getKycStatus(userToken).then((status) => {
 })
 .catch((error) => {
   console.log(error)
-}
+})
 ```
 
 #### Run a KYC check
@@ -190,6 +190,15 @@ celsius.getTransactionStatus(transactionId, userToken).then((status) => {
     console.log(error)
 })
 ```
+#### Get interest rates for all supported coin
+```javascript
+celsius.getInterestRates().then((interestRates) => {
+   console.log(interestRates);
+ }).catch((error) => {
+   console.log(error);
+ })
+```
+
 ### Obtaining coins for testing
 
 | Coin name     | Coin Type | Faucet    |
