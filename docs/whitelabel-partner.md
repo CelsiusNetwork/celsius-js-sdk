@@ -123,6 +123,15 @@ celsius.getCoinBalance(coin, userToken).then((balanceSummary) => {
     console.log(error)
 })
 ```
+#### Get total interest earned by user
+```javascript
+celsius.getInterestSummary(userToken).then((interestSummary) => {
+    console.log(interestSummary)
+})
+.catch((error) => {
+    console.log(error)
+})
+```
 #### Get paginated list of transactions for all currencies 
 ```javascript
 const pagination = {

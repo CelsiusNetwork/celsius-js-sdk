@@ -24,6 +24,13 @@ declare module "celsius-sdk" {
         }
     }
 
+    interface CelsiusInterestSummaryResponse {
+        /** Contains user's interest per coin. **/
+        interest: {
+            [key: string]: number
+        }
+    }
+
     interface CelsiusPaginationOptions {
         /** Page to retrieve. If left empty, defaults to first page.**/
         page?: number;
@@ -223,6 +230,7 @@ declare module "celsius-sdk" {
         getSupportedCurrencies(): Promise<CelsiusSupportedCurrencies>;
         getBalanceSummary(userSecret: string): Promise<CelsiusBalanceSummaryResponse>;
         getCoinBalance(coin: string, userSecret: string): Promise<CelsiusCoinBalanceResponse>;
+        getInterestSummary(userSecret: string): Promise<CelsiusInterestSummaryResponse>;
         getTransactionSummary(pagination: CelsiusPagination, userSecret: string): Promise<CelsiusTransactionSummary>;
         getCoinTransactions(coin: string, pagination: CelsiusPagination, userSecret: string): Promise<CelsiusTransactionSummary>;
         getDeposit(coin: string, userSecret: string): Promise<{address: string}>;
