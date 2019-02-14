@@ -90,6 +90,15 @@ celsius.getCoinBalance(coin, user.celsiusApiKey).then((balanceSummary) => {
     console.log(error)
 })
 ```
+#### Get total interest earned by user
+```javascript
+celsius.getInterestSummary(user.celsiusApiKey).then((interestSummary) => {
+    console.log(interestSummary)
+})
+.catch((error) => {
+    console.log(error)
+})
+```
 #### Get paginated list of transactions for all currencies 
 ```javascript
 const pagination = {
