@@ -121,6 +121,20 @@ declare module "celsius-sdk" {
         date_of_birth: string;
         /** ISO-3166-1 country short names **/
         citizenship: string;
+        country: string;
+        /** State in United States **/
+        state?: string;
+        city: string;
+        zip: string;
+        street: string;
+        building_number?: string;
+        flat_number?: string;
+        /** Individual taxpayer identification number **/
+        itin?: string;
+        /** National id **/
+        national_id?: string;
+        /** Social security number **/
+        ssn?: string;
         gender: 'male' | 'female' | 'other';
         /** E.123 international notation phone **/
         phone_number: string;
