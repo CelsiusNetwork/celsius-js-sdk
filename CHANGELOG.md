@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     * itin
     * national_id
     * ssn
+    
+-   Changed maximum upload size to 25mb
 
 ## [0.10.5] - 2019-02-14
 ### Added
