@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.6] - 2019-02-19
+### Added
+-   Added following address properties to ```CelsiusKycUserData```:
+    * country
+    * state - Required if the country is 'United States'
+    * city
+    * zip
+    * street
+    * building_number
+    * flat_number
+    
+-   Added following taxpayer properties to ```CelsiusKycUserData```:
+    * itin
+    * national_id
+    * ssn
+
+-   Changed maximum upload size to 25mb
+
 ## [0.10.5] - 2019-02-14
 ### Added
 -   Method ```CelsiusInstance.getInterestSummary(userSecret)``` that returns interest earned by the user.

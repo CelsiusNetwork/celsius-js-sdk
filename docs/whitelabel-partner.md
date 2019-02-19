@@ -16,7 +16,7 @@ Partners can use Celsius’ features on behalf of their existing or new users, r
 > *Note: If your platform does not perform KYC please contact Celsius’ Business Development team* 
 - ***Deposits & withdrawals***
 > Users on a partner platform can deposit and withdraw any cryptocurrency supported by Celsius into an account to start earning interest.
-- ***Balance & tranaction checking***
+- ***Balance & transaction checking***
 > Users on a partner platform can check their account balances and transaction statuses across different blockchains.
 
 ## Getting started
@@ -74,8 +74,18 @@ const userData = {
   last_name: 'Nakamoto',
   date_of_birth: '1990-04-14',
   citizenship: 'Serbia',
+  country: 'United States',
+  state: 'Ohio',
+  city: 'Columbus',
+  zip: '123',
+  street: '3rd Street',
+  building_number: '15a',
+  flat_number: '2c',
+  itin: '123-456-789',
+  national_id: '123-456-789',
+  ssn: '123-456-789',
   middle_name: '',
-  title: 'Mr',
+  title: 'mr',
   gender: 'male',
   phone_number: '+3811234567890',
   document_type: 'passport',
