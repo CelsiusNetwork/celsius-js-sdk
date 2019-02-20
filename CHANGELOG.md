@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.7] - 2019-02-20
+### Added
+-   Added support for two letter United States state codes in ```CelsiusKycUserData.state``` property.
+### Bug Fixes
+-   Fixed typings for ```CelsiusKycUserData.document_type```. Available document types are now:
+    * passport
+    * identity_card
+    * driver_licence
 ## [0.10.6] - 2019-02-19
 ### Added
 -   Added following address properties to ```CelsiusKycUserData```:
@@ -19,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     * itin
     * national_id
     * ssn
-
+    
 -   Changed maximum upload size to 25mb
 
 ## [0.10.5] - 2019-02-14
