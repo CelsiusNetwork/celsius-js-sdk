@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.8] - 2019-02-25
+### Added
+-   Added support for ISO 3166 country representation in ```CelsiusKycUserData.country``` property.
+    Available ISO 3166 country representations are:
+    * ISO 3166 Country name
+    * ISO 3166 Official state name
+    * ISO 3166-1 Alpha-2 code
+    * ISO 3166-3 Alpha-3 code
+    
 ## [0.10.7] - 2019-02-20
 ### Added
 -   Added support for two letter United States state codes in ```CelsiusKycUserData.state``` property.
