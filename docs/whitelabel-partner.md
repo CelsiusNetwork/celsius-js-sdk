@@ -68,6 +68,10 @@ celsius.getKycStatus(userToken).then((status) => {
 
 #### Run a KYC check
 
+> `country` field must be in ISO 3166 format (two letter code, three letter code, common name or official name).
+
+> `state` field is mandatory when `country` is `'United States'`. It must be either the full name of the state or a two letter code.
+
 ```javascript
 const userData = {
   first_name: 'Satoshi',
