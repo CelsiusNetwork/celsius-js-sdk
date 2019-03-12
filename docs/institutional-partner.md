@@ -160,6 +160,19 @@ celsius.getInterestRates().then((interestRates) => {
  })
 ```
 
+### Statistics actions
+
+After initializing SDK, you can perform following actions:
+
+#### Get statistics for user
+```javascript
+celsius.getStatistics(apiKey, '1552388292').then((statistics) => {
+   console.log(statistics);
+ }).catch((error) => {
+   console.log(error);
+ })
+```
+
 ### Obtaining coins for testing
 
 | Coin name     | Coin Type | Faucet    |

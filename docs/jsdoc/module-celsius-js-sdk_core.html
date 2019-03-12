@@ -87,7 +87,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line72">line 72</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line84">line 84</a>
     </li></ul></dd>
     
 
@@ -190,7 +190,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line102">line 102</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line114">line 114</a>
     </li></ul></dd>
     
 
@@ -319,7 +319,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line173">line 173</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line185">line 185</a>
     </li></ul></dd>
     
 
@@ -523,7 +523,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line190">line 190</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line202">line 202</a>
     </li></ul></dd>
     
 
@@ -755,7 +755,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line247">line 247</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line259">line 259</a>
     </li></ul></dd>
     
 
@@ -963,7 +963,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line269">line 269</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line281">line 281</a>
     </li></ul></dd>
     
 
@@ -1149,7 +1149,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line210">line 210</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line222">line 222</a>
     </li></ul></dd>
     
 
@@ -1332,7 +1332,7 @@ pass KYC before creating api keys.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line110">line 110</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line122">line 122</a>
     </li></ul></dd>
     
 
@@ -1412,6 +1412,183 @@ pass KYC before creating api keys.</p>
     
 
     
+    <h4 class="name" id=".getStatistics"><span class="type-signature">(static) </span>getStatistics<span class="signature">(timestamp, userSecret)</span><span class="type-signature"> &rarr; {<a href="global.html#StatisticsResponse">StatisticsResponse</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>This method returns statistics for the given userSecret.
+Timestamp can be optionally passed to configure start date for getting statistics.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">timestamp</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Timestamp from which to calculate statistics</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userSecret</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Represents a secret value used to uniquely identify users. Can be user-token or api-key.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line365">line 365</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#StatisticsResponse">StatisticsResponse</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id=".getSupportedCurrencies"><span class="type-signature">(static) </span>getSupportedCurrencies<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;String>}</span></h4>
     
 
@@ -1464,7 +1641,7 @@ pass KYC before creating api keys.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line158">line 158</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line170">line 170</a>
     </li></ul></dd>
     
 
@@ -1640,7 +1817,7 @@ pass KYC before creating api keys.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line318">line 318</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line330">line 330</a>
     </li></ul></dd>
     
 
@@ -1837,7 +2014,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line227">line 227</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line239">line 239</a>
     </li></ul></dd>
     
 
@@ -2064,7 +2241,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line131">line 131</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line143">line 143</a>
     </li></ul></dd>
     
 
@@ -2316,7 +2493,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line290">line 290</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line302">line 302</a>
     </li></ul></dd>
     
 
@@ -2526,7 +2703,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core.js.html">core.js</a>, <a href="core.js.html#line84">line 84</a>
+        <a href="core.js.html">core.js</a>, <a href="core.js.html#line96">line 96</a>
     </li></ul></dd>
     
 
@@ -2594,7 +2771,7 @@ Also included in the response is a {PaginationHeader}, used to get next chunk of
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Feb 25 2019 16:59:15 GMT+0100 (CET)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Mar 12 2019 12:18:00 GMT+0100 (CET)
 </footer>
 
 <script> prettyPrint(); </script>
