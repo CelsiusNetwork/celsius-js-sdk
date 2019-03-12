@@ -31,6 +31,28 @@ declare module 'celsius-sdk' {
         }
     }
 
+    interface CelsiusStatisticsTotalUSDAmount {
+        /** Contains total amount owned in usd. **/
+        total_amount_usd: string,
+    }
+
+    interface CelsiusAmountPerCoin {
+        /** Contains, for each coin, amount of that coin and amount in usd. **/
+        [key: string]: {
+            amount: string,
+            amount_usd: number
+        }
+    }
+
+    interface CelsiusStatisticsResponse {
+        deposit_count: number | string,
+        deposit_amount:  CelsiusStatisticsTotalUSDAmount & CelsiusAmountPerCoin,
+        withdrawal_count: number | string,
+        withdrawal_amount: CelsiusStatisticsTotalUSDAmount & CelsiusAmountPerCoin,
+        interest_count: number | string,
+        interest_amount: CelsiusStatisticsTotalUSDAmount & CelsiusAmountPerCoin
+    }
+
     interface CelsiusPaginationOptions {
         /** Page to retrieve. If left empty, defaults to first page.**/
         page?: number;
@@ -256,6 +278,7 @@ declare module 'celsius-sdk' {
         changeWithdrawalAddress(id: string, data: WithdrawalAddress, userSecret: string): Promise<UserWithdrawalAddress>;
         createUser(user: InstitutionalUser, userSecret: string): Promise<UserCreateResponse>
         getInterestRates(): Promise<InterestRates>
+        getStatistics(userSecret: string, timestamp?: string): Promise<CelsiusStatisticsResponse>
     }
 
     interface InterestRates {
