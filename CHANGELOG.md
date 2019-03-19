@@ -34,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Fixed typings for ```CelsiusKycUserData.document_type```. Available document types are now:
     * passport
     * identity_card
-    * driver_licence
+    * driving_licence
 ## [0.10.6] - 2019-02-19
 ### Added
 -   Added following address properties to ```CelsiusKycUserData```:
