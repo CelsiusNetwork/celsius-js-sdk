@@ -84,8 +84,6 @@ declare module 'celsius-sdk' {
      * Celsius Withdraw Options
      */
     interface CelsiusWithdrawOptions {
-        /** The coin you wish to withdraw */
-        coin: string;
         /** This is the withdrawal amount you want */
         amount: number;
         /** This is destination address that you want the tokens to be deposited  */
