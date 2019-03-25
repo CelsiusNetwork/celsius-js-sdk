@@ -7,4 +7,4 @@ docs/_site/
 yarn.lock
 package-lock.json
 npm-shrinkwrap.json
-test.js
+test-config.js

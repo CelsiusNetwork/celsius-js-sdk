@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.9] - 2019-03-12
+### Added
+-   Added method ```CelsiusInstance.getStatistics(userSecret, timestamp)``` that returns following statistics:
+    * deposit_count - Number of deposits made
+    * deposit_amount - Total amount deposited in usd and per coin (in that coin and usd)
+    * withdrawal_count - Number of withdrawals made
+    * withdrawal_amount - Total amount withdrawn in usd and per coin (in that coin and usd)
+    * interest_count - Number of interests earned
+    * interest_amount - Total interest earned in usd and per coin (in that coin and usd)
+    
+    Optionally, ```timestamp``` can be provided which serves as the starting point for gathering statistics.
+    Any deposits, withdrawals and interests created before that date will be ignored.
+-   Added mocha tests to sdk.
+
 ## [0.10.8] - 2019-02-25
 ### Added
 -   Added support for ISO 3166 country representation in ```CelsiusKycUserData.country``` property.
@@ -20,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Fixed typings for ```CelsiusKycUserData.document_type```. Available document types are now:
     * passport
     * identity_card
-    * driver_licence
+    * driving_licence
 ## [0.10.6] - 2019-02-19
 ### Added
 -   Added following address properties to ```CelsiusKycUserData```:

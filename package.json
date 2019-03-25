@@ -1,6 +1,6 @@
 {
   "name": "celsius-sdk",
-  "version": "0.10.8",
+  "version": "0.10.9",
   "author": {
     "name": "Celsius Network",
     "email": "",
@@ -19,9 +19,10 @@
   },
   "main": "./index.js",
   "scripts": {
-    "test": "eslint lib/*",
+    "eslint ": "eslint lib/*",
     "jsdoc": "jsdoc -r -c ./docs/jsdoc/config.json",
-    "swagger": ""
+    "swagger": "",
+    "test": "echo Passed;"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -35,6 +36,8 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "pre-commit": "^1.2.2",
-    "jsdoc": "^3.5.5"
+    "jsdoc": "^3.5.5",
+    "mocha": "^6.0.2",
+    "chai": "^4.2.0"
   }
 }
