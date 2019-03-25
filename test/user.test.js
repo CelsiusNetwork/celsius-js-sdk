@@ -6,7 +6,7 @@ const {
   partnerKeyToken,
   baseUrl,
   publicKey
-} = require('./test-config')
+} = require('./utils')
 let instance
 
 

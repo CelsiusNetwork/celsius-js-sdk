@@ -10,7 +10,7 @@ const {
   transactionId,
   userAddress,
   keysToUpperCase
-} = require('./test-config')
+} = require('./utils')
 let instance, supportedCurrencies
 
 describe('Wallet Test', async function () {

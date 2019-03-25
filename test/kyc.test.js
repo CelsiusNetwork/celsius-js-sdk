@@ -7,9 +7,29 @@ const {
   baseUrl,
   publicKey,
   documents,
-  userKYCData
-} = require('./test-config')
+} = require('./utils')
 let instance, supportedCurrencies
+
+const mockKycData = {
+  first_name: 'Satoshi',
+  last_name: 'Nakamoto',
+  date_of_birth: '1990-04-14',
+  citizenship: 'Serbia',
+  country: 'Serbia',
+  state: 'United State',
+  city: 'Belgrade',
+  zip: '123',
+  street: '3rd Street',
+  building_number: '15a',
+  flat_number: '1c',
+  itin: '123-456-789',
+  national_id: '123-456-789',
+  ssn: '',
+  middle_name: '',
+  title: 'mr222',
+  phone_number: '+3811234567890',
+  document_type: 'passport'
+}
 
 describe('KYC Test', async function () {
   before(async () => {
@@ -27,7 +47,7 @@ describe('KYC Test', async function () {
   })
 
   it('KYC verify', async () => {
-    const { message } = await instance.verifyKyc(userKYCData, documents, newUser)
+    const { message } = await instance.verifyKyc(mockKycData, documents, newUser)
     expect(message).to.be.equal('Kyc started.')
   })
 

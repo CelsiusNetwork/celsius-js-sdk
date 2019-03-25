@@ -1,13 +1,11 @@
 const {Celsius, AUTH_METHODS} = require('../index')
+
 const expect = require('chai').expect
 const {
   newUser,
-  partnerKeyApiKey,
-  baseUrl,
-  publicKey,
+  partnerKey,
   documents,
-  userKYCData
-} = require('./test-config')
+} = require('./utils')
 const { Util } = require('../lib/util')
 
 describe('Errors Test', async function () {
@@ -15,9 +13,8 @@ describe('Errors Test', async function () {
   it('Invalid authentication method provided', async () => {
     try {
       let wrongPartner = await Celsius({
-        partnerKey: partnerKeyApiKey, // partner key
-        baseUrl: baseUrl, // Wallet-API url
-        publicKey: publicKey // public key
+        partnerKey: partnerKey, // partner key
+        environment: 'staging'
       })
     } catch (error) {
       expect(error.message).to.be.equal('Invalid authentication method provided.')
@@ -44,8 +41,10 @@ describe('Errors Test', async function () {
         baseUrl: baseUrl, // Wallet-API url
       })
 
-      await wrongPartner.verifyKyc(userKYCData, documents, newUser)
+      // We're sending an empty object as we don't want even to parse the response.
+      await wrongPartner.verifyKyc({}, documents, newUser)
     } catch (error) {
+      console.log(error)
       expect(error.message).to.be.equal('Response signature verification failed.')
     }
   })

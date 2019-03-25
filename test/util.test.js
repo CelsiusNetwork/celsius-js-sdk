@@ -6,7 +6,7 @@ const {
   baseUrl,
   publicKey,
   partnerKeyApiKey
-} = require('./test-config')
+} = require('./utils')
 let instance, supportedCurrencies
 
 describe('Util Test', async function () {
