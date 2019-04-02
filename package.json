@@ -22,7 +22,7 @@
     "eslint ": "eslint lib/*",
     "jsdoc": "jsdoc -r -c ./docs/jsdoc/config.json",
     "swagger": "",
-    "test": "mocha",
+    "test": "mocha --timeout 5000",
     "test-coverage": "nyc --reporter=text mocha"
   },
   "dependencies": {

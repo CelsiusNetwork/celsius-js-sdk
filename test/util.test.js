@@ -1,11 +1,10 @@
 const {Celsius, AUTH_METHODS, ENVIRONMENT} = require('../index')
 const expect = require('chai').expect
 const {
-  oldUser,
   partnerKeyToken,
-  baseUrl,
   publicKey,
-  partnerKeyApiKey
+  partnerKeyApiKey,
+  newUser
 } = require('./utils')
 let instance, supportedCurrencies
 
@@ -14,13 +13,13 @@ describe('Util Test', async function () {
     instance = await Celsius({
       authMethod: AUTH_METHODS.USER_TOKEN, // Auth method
       partnerKey: partnerKeyToken, // partner key
-      baseUrl: baseUrl, // Wallet-API url
+      environment: ENVIRONMENT.STAGING, // Wallet-API url
       publicKey: publicKey // public key
     })
   })
 
   it('Partner statistics', async () => {
-    let data = await instance.getStatistics(oldUser)
+    let data = await instance.getStatistics(newUser)
     expect(data).to.be.a('object')
   })
 
@@ -36,11 +35,16 @@ describe('Util Test', async function () {
   })
 
   it('Should creates api-key partner', async () => {
-    let apiKeyPartner = await Celsius({
-      authMethod: AUTH_METHODS.API_KEY, // Auth method
-      partnerKey: partnerKeyApiKey, // partner key
-      environment: ENVIRONMENT.STAGING, // Wallet-API url
-      publicKey: publicKey // public key
-    })
+    try {
+      let apiKeyPartner = await Celsius({
+        authMethod: AUTH_METHODS.API_KEY, // Auth method
+        partnerKey: partnerKeyApiKey, // partner key
+        environment: ENVIRONMENT.STAGING, // Wallet-API url
+        publicKey: publicKey // public key
+      })
+    } catch (e) {
+      console.log(e)
+    }
+
   })
 })

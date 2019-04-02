@@ -1,15 +1,15 @@
-const {Celsius, AUTH_METHODS} = require('../index')
+const {Celsius, AUTH_METHODS, ENVIRONMENT} = require('../index')
 const expect = require('chai').expect
 const {
-  oldUser,
+  newUser,
   transactionStates,
   partnerKeyToken,
-  baseUrl,
   publicKey,
   wrongUserAddress,
-  transactionId,
   userAddress,
-  keysToUpperCase
+  keysToUpperCase,
+  oldUser,
+  transactionId
 } = require('./utils')
 let instance, supportedCurrencies
 
@@ -19,7 +19,7 @@ describe('Wallet Test', async function () {
     instance = await Celsius({
       authMethod: AUTH_METHODS.USER_TOKEN, // Auth method
       partnerKey: partnerKeyToken, // partner key
-      baseUrl: baseUrl, // Wallet-API url
+      environment: ENVIRONMENT.STAGING,
       publicKey: publicKey // public key
     })
     supportedCurrencies = instance.currencies
@@ -36,17 +36,17 @@ describe('Wallet Test', async function () {
   })
 
   it('Interest summary', async () => {
-    let {interest} = await instance.getInterestSummary(oldUser)
+    let {interest} = await instance.getInterestSummary(newUser)
     expect(interest).to.be.a('object')
   })
 
   it('History of transactions', async () => {
-    let {record} = await instance.getTransactionSummary({}, oldUser)
+    let {record} = await instance.getTransactionSummary({}, newUser)
     expect(record).to.be.a('array')
   })
 
   it('History of transactions by coin', async () => {
-    let {record} = await instance.getCoinTransactions('BTC', {}, oldUser)
+    let {record} = await instance.getCoinTransactions('ETH', {}, newUser)
     expect(record).to.be.a('array')
   })
 
@@ -57,7 +57,7 @@ describe('Wallet Test', async function () {
 
   it('Successfully withdrawn', async () => {
     const data = {
-      amount: 0.111,
+      amount: 0.0007,
       address: userAddress,
     }
     let {transaction_id} = await instance.withdraw('BTC', data, oldUser)
@@ -70,7 +70,7 @@ describe('Wallet Test', async function () {
         amount: 2,
         address: wrongUserAddress,
       }
-      await instance.withdraw('BTC', data, oldUser)
+      await instance.withdraw('ETH', data, newUser)
     } catch (e) {
       expect(e.message).to.be.equal('Invalid address provided for partner\'s withdrawal scheme.')
     }

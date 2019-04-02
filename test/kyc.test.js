@@ -1,14 +1,14 @@
-const {Celsius, AUTH_METHODS} = require('../index')
+const {Celsius, AUTH_METHODS, ENVIRONMENT} = require('../index')
 const expect = require('chai').expect
 const {
-  oldUser,
   newUser,
   partnerKeyToken,
-  baseUrl,
   publicKey,
+  partnerKYC,
   documents,
+  newKycUser,
 } = require('./utils')
-let instance, supportedCurrencies
+let partnerWithoutKyc, partnerWithoKyc
 
 const mockKycData = {
   first_name: 'Satoshi',
@@ -33,34 +33,43 @@ const mockKycData = {
 
 describe('KYC Test', async function () {
   before(async () => {
-    instance = await Celsius({
+    partnerWithoutKyc = await Celsius({
       authMethod: AUTH_METHODS.USER_TOKEN, // Auth method
       partnerKey: partnerKeyToken, // partner key
-      baseUrl: baseUrl, // Wallet-API url
+      environment: ENVIRONMENT.STAGING, // Wallet-API url
       publicKey: publicKey // public key
     })
   })
 
+  it('KYC status passed', async () => {
+    const kycStatus = await partnerWithoutKyc.getKycStatus(newUser)
+    expect(kycStatus.status).to.be.equal('PASSED')
+  })
+
+  it('Create kyc partner', async () => {
+    partnerWithoKyc = await Celsius({
+      authMethod: AUTH_METHODS.USER_TOKEN,
+      partnerKey: partnerKYC,
+      environment: ENVIRONMENT.STAGING,
+      publicKey: publicKey
+    })
+  })
+
   it('KYC status collecting', async () => {
-    const kycStatus = await instance.getKycStatus(newUser)
+    const kycStatus = await partnerWithoKyc.getKycStatus(newKycUser)
     expect(kycStatus.status).to.be.equal('COLLECTING')
   })
 
   it('KYC verify', async () => {
-    const { message } = await instance.verifyKyc(mockKycData, documents, newUser)
+    const { message } = await partnerWithoKyc.verifyKyc(mockKycData, documents, newKycUser)
     expect(message).to.be.equal('Kyc started.')
-  })
+  }).timeout(3500)
 
   it('KYC verification error', async () => {
     try {
-      await instance.verifyKyc({}, documents, newUser)
+      await partnerWithoKyc.verifyKyc({}, documents, newKycUser)
     } catch (error) {
       expect(error.message).to.be.a('array')
     }
-  })
-
-  it('KYC status passed', async () => {
-    const kycStatus = await instance.getKycStatus(oldUser)
-    expect(kycStatus.status).to.be.equal('PASSED')
   })
 })
