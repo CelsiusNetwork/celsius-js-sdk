@@ -223,6 +223,7 @@ declare module 'celsius-sdk' {
 
     interface UserCreateResponse {
         message: 'User has been created';
+        userId: string;
     }
 
     interface UserWithdrawalAddress {
