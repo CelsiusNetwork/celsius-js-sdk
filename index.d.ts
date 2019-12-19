@@ -253,7 +253,7 @@ declare module 'celsius-sdk' {
         email: string;
         country: string;
         state?: string;
-        taxNumber?: number;
+        taxNumber?: string;
         contactPerson: string;
         contactEmail: string;
         note?: string;
