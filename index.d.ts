@@ -100,6 +100,16 @@ declare module 'celsius-sdk' {
         state: string;
     }
 
+    /**
+     * Celsius Withdrawal Addresses
+     */
+    interface CelsiusWithdrawalAddresses {
+        addresses: {
+            /** Each key,value pair represents a coin and the withdrawal address for that coin **/
+            [key: string]: string
+        };
+    }
+
     interface CelsiusTransactionRecord extends CelsiusCoinBalanceResponse {
         /** The amount in this coin */
         amount: string;
@@ -272,6 +282,8 @@ declare module 'celsius-sdk' {
         getCoinTransactions(coin: string, pagination: CelsiusPagination, userSecret: string): Promise<CelsiusTransactionSummary>;
         getDeposit(coin: string, userSecret: string): Promise<{address: string}>;
         withdraw(coin: string, formFields: CelsiusWithdrawOptions, userSecret: string): Promise<{transaction_id: string}>;
+        getWithdrawalAddressForCoin(coin: string, userSecret: string): Promise<{address: string}>
+        getWithdrawalAddresses(userSecret: string): Promise<CelsiusWithdrawalAddresses>
         getTransactionStatus(transaction: string, userSecret: string): Promise<CelsiusWithdrawalTransaction>;
         getUsers(pagination: PaginationOptions, userSecret: string): Promise<UsersResponse>;
         changeMetadata(id: string, data: object, userSecret: string): Promise<UserMetadataResponse>;
