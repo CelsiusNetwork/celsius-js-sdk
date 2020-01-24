@@ -186,6 +186,28 @@ celsius.getDeposit(coin, userToken).then((address) => {
     console.log(error)
 })
 ```
+#### Get all withdrawal addresses
+This endpoint returns withdrawal addresses only for partners which are using '**Origin address of the first deposit**' withdrawal scheme.
+```javascript
+celsius.getWithdrawalAddresses(userToken).then((addresses) => {
+    console.log(addresses)
+})
+.catch((error) => {
+    console.log(error)
+})
+```
+#### Get withdrawal address for a specific currency
+This endpoint returns withdrawal address only for partners which are using '**Origin address of the first deposit**' withdrawal scheme.
+```javascript
+const coin = 'BTC'
+
+celsius.getWithdrawalAddressForCoin(coin, userToken).then((address) => {
+    console.log(address)
+})
+.catch((error) => {
+    console.log(error)
+})
+```
 #### Withdraw funds to an address
 ```javascript
 const coin = 'BTC'
