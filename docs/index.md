@@ -12,14 +12,14 @@ Depending upon your specific integration needs, there are multiple different way
 When consulting technical docs please make sure that you are looking at the partnership type that is relevant to you.
 
 
-| Actions | Institutional partner | Whitelabel | API partner  |
-| ------: | :-------------------: | :--------: | :----------: |
+| Actions | Omnibus partner | Segmented | API |
+| ------: | :-------------: | :-------: | :-: |
 | Deposit & withdraw funds | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> |
 | Earn interest | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> |
 | Transparently create Celsius wallets for your users | <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#f85757;">❌</span> |
 | Run KYC checks on your users | <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#f85757;">❌</span> | 
 | Use Celsius on behalf of existing Celsius users | <span style="color:#f85757;">❌</span> |  <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> |
-| | [Open docs](/institutional-partner.html) | [Open docs](/whitelabel-partner.html) | [Open docs](/api-partner.html) |
+| | [Open docs](/omnibus-partner.html) | [Open docs](/segmented-partner.html) | [Open docs](/api.html) |
 
 # Withdrawal schemes
 

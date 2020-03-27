@@ -1,11 +1,11 @@
-![Institutional Partner Overview](/assets/images/institutional-partner.svg)
+![Segmented Partner Overview](/assets/images/Segmented.svg)
 {% raw %}
-<h1 style="display: none;">Institutional Partner</h1>
+<h1 style="display: none;">Segmented Partner</h1>
 {% endraw %}
 
 ## Use case
 
-The Institutional Partner API offers partners the ability to use Celsius features as a legal entity rather than as a user. This allows partners to reap the benefits and features of Celsius Network that to be accessed through the API rather than from a mobile app. 
+The Segmented Partner API offers partners the ability to use Celsius features as a legal entity rather than as a user. This allows partners to reap the benefits and features of Celsius Network that to be accessed through the API rather than from a mobile app. 
 
 ### Features
 
@@ -16,7 +16,7 @@ The Institutional Partner API offers partners the ability to use Celsius feature
 
 ## Getting started
 
-Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#62562199-0dce-4fd8-b8e6-a3440fc60a7f) for the Institutional Partner API. 
+Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#62562199-0dce-4fd8-b8e6-a3440fc60a7f) for the Segmented Partner API. 
 
 ### Security
 

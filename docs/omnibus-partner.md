@@ -1,13 +1,13 @@
-![Whitelabel Partner Overview](/assets/images/whitelabel.svg)
+![Omnibus Partner Overview](/assets/images/Omnibus.svg)
 {% raw %}
-<h1 style="display: none;">Whitelabel Partner</h1>
+<h1 style="display: none;">Omnibus Partner</h1>
 {% endraw %}
 
 ## Use case
 
-The Whitelabel API offers partners a way to transparently give their existing users access to Celsius Network features. 
+The Omnibus API offers partners a way to transparently give their existing users access to Celsius Network features. 
 
-Partners can use Celsius’ features on behalf of their existing or new users, regardless of whether or not those users are already a part of the Celsius Network. Users created through the Whitelabel API will be completely independent of in-app Celsius users.
+Partners can use Celsius’ features on behalf of their existing or new users, regardless of whether or not those users are already a part of the Celsius Network. Users created through the Omnibus API will be completely independent of in-app Celsius users.
 
 ### Features
 
@@ -21,7 +21,7 @@ Partners can use Celsius’ features on behalf of their existing or new users, r
 
 ## Getting started
 
-Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#31c70317-92dd-4e68-a5db-ea16a81121fa) for the Whitelabel API. 
+Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#31c70317-92dd-4e68-a5db-ea16a81121fa) for the Omnibus API. 
 
 ### Security
 
