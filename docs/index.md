@@ -12,14 +12,14 @@ Depending upon your specific integration needs, there are multiple different way
 When consulting technical docs please make sure that you are looking at the partnership type that is relevant to you.
 
 
-| Actions | Institutional partner | Whitelabel | API partner  |
+| Actions | Omnibus Integration Partner | Segmented Integration Partner | Omnibus Treasury  |
 | ------: | :-------------------: | :--------: | :----------: |
 | Deposit & withdraw funds | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> |
 | Earn interest | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#4FB895;">✔</span> |
 | Transparently create Celsius wallets for your users | <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#f85757;">❌</span> |
 | Run KYC checks on your users | <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#f85757;">❌</span> | 
 | Use Celsius on behalf of existing Celsius users | <span style="color:#f85757;">❌</span> |  <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> |
-| | [Open docs](/institutional-partner.html) | [Open docs](/whitelabel-partner.html) | [Open docs](/api-partner.html) |
+| | [Open docs](/integration-partner.html) | [Open docs](/segmented-partner.html) | [Open docs](/omnibus-treasury.html) |
 
 # Withdrawal schemes
 
@@ -28,10 +28,9 @@ Depending on the partner needs, there are different methods for limiting which a
 | Withdrawal Scheme                   | Description |
 | ----------------------------------: | :---------: |
 | No address                          | Funds cannot be withdrawn to any address |
-| Origin address of the first deposit | Funds can be withdrawn only to the origin address of  the first deposit |
 | List of pre-approved addresses      | Funds can be withdrawn only to a list of pre-approved addresses |
 | Any address                         | Funds can be withdrawn to any address |
 
 # Becoming a partner
 
-To become a partner, please contact Leah Jonas at [leah@celsius.network](mailto://leah@celsius.network).
+[Become a Partner!](https://celsiusnetwork.typeform.com/to/LdP21V)
