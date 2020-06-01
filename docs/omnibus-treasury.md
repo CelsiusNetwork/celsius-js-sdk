@@ -25,7 +25,8 @@ Depending on what the user permissions granted when the API key is created, foll
 - ***Withdraw***
 > Grants partner the ability to withdraw funds from user’s wallet to another wallet address.
 
-[Click here to view how to generate API Key.](/createAPIKey.html) 
+[Click here to view how to generate API Key.](/createAPIKey.html)
+After successfully generating an API, please email [partners@celsius.network]partners@celsius.network to get your private API key.  
 
 ## Getting started
 
