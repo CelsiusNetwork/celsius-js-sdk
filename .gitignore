@@ -8,3 +8,4 @@ yarn.lock
 package-lock.json
 npm-shrinkwrap.json
 test-config.js
+.DS_Store

@@ -1,13 +1,13 @@
-![Whitelabel Partner Overview](/assets/images/whitelabel.svg)
+![Segmented Integration Partner Overview](/assets/images/segmented-partner.svg)
 {% raw %}
-<h1 style="display: none;">Whitelabel Partner</h1>
+<h1 style="display: none;">Segmented Integration Partner</h1>
 {% endraw %}
 
 ## Use case
 
-The Whitelabel API offers partners a way to transparently give their existing users access to Celsius Network features. 
+The Segmented Integration API offers partners a way to transparently give their existing users access to Celsius Network features. 
 
-Partners can use Celsius’ features on behalf of their existing or new users, regardless of whether or not those users are already a part of the Celsius Network. Users created through the Whitelabel API will be completely independent of in-app Celsius users.
+Partners can use Celsius’ features on behalf of their existing or new users, regardless of whether or not those users are already a part of the Celsius Network. Users created through the Segmented Integration API will be completely independent of in-app Celsius users.
 
 ### Features
 
@@ -21,7 +21,7 @@ Partners can use Celsius’ features on behalf of their existing or new users, r
 
 ## Getting started
 
-Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#31c70317-92dd-4e68-a5db-ea16a81121fa) for the Whitelabel API. 
+Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#31c70317-92dd-4e68-a5db-ea16a81121fa) for the Segmented Integration API. 
 
 ### Security
 
@@ -180,28 +180,6 @@ celsius.getCoinTransactions(coin, pagination, userToken).then((transactions) => 
 const coin = 'BTC'
 
 celsius.getDeposit(coin, userToken).then((address) => {
-    console.log(address)
-})
-.catch((error) => {
-    console.log(error)
-})
-```
-#### Get all withdrawal addresses
-This endpoint returns withdrawal addresses only for partners which are using '**Origin address of the first deposit**' withdrawal scheme.
-```javascript
-celsius.getWithdrawalAddresses(userToken).then((addresses) => {
-    console.log(addresses)
-})
-.catch((error) => {
-    console.log(error)
-})
-```
-#### Get withdrawal address for a specific currency
-This endpoint returns withdrawal address only for partners which are using '**Origin address of the first deposit**' withdrawal scheme.
-```javascript
-const coin = 'BTC'
-
-celsius.getWithdrawalAddressForCoin(coin, userToken).then((address) => {
     console.log(address)
 })
 .catch((error) => {

@@ -1,13 +1,13 @@
-![API Partner Overview](/assets/images/api-partner.svg)
+![Omnibus Treasury Overview](/assets/images/omnbius-treasury.svg)
 {% raw %}
-<h1 style="display: none;">API Partner</h1>
+<h1 style="display: none;">Omnibus Treasury</h1>
 {% endraw %}
 
 ## Use case
 
-Celsius API Partner partnership type is ideal for integrating existing Celsius Network users to third-party applications.
+Celsius Omnibus Treasury partnership type is ideal for integrating existing Celsius Network users to third-party applications.
 
-Using our user-generated API Keys from within the Celsius Network mobile app, the partner application can interface the Celsius API on the behalf of the user. 
+Using our user-generated API Keys from within the Celsius Network mobile app, the Omnibus Treasury application can interface the Celsius API on the behalf of the user. 
 
 ### Features
 
@@ -25,11 +25,12 @@ Depending on what the user permissions granted when the API key is created, foll
 - ***Withdraw***
 > Grants partner the ability to withdraw funds from user’s wallet to another wallet address.
 
-[Click here to view how to generate API Key.](/createAPIKey.html) 
+[Click here to view how to generate API Key.](/createAPIKey.html)
+After successfully generating an API, please email [partners@celsius.network]partners@celsius.network to get your private API key.  
 
 ## Getting started
 
-Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#83677182-2cc9-4198-b574-77ad0862237b) for the API Partner. 
+Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695/Rzn6v2mZ#83677182-2cc9-4198-b574-77ad0862237b) for the Omnibus Treasury. 
 
 ### Security
 
