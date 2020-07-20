@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.13] - 2020-07-20
+- Adding new properties to response received when using ```CelsiusInstance.getTransctionSummary(pagination, userSecret)``` and ```CelsiusInstance.getCoinTransactions(coin, pagination, userSecret)```.
+    * original_interest_coin - Name of the original coin for which the interest has been accrued.
+    * interest_amount_in_original_coin - Amount accrued in `original_interest_coin`, before conversion to another asset. 
+  
+  These properties are present only for transactions where the `nature` property is `interest`.
+
+## [0.10.12] - 2020-01-24
+- Adding support for `Origin address of the first deposit` withdrawal scheme.
+    * Whitelabel partners can now be configured in a way that allows withdrawing funds only to the origin addresses of first deposits.
+    * Adding method ```CelsiusInstance.getWithdrawalAddresses(userSecret)``` which returns all withdrawal addresses for the given user.
+    * Adding method ```CelsiusInstance.getWithdrawalAddressForCoin(coin, userSecret)``` which returns withdrawal address for the given user and coin.
+
 ## [0.10.11] - 2019-12-18
 - Raising axios version from 0.18.0 up to 0.18.1 to address security vulnerabilities.
 
