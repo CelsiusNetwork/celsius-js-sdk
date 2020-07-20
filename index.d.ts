@@ -125,6 +125,10 @@ declare module 'celsius-sdk' {
         time: string;
         /** The transaction id in the blockchain. It's null if the transaction was not yet submitted */
         tx_id: string|null;
+        /** Present only in transactions where nature is `interest`. Represents the original coin for which the interest has been accrued. **/
+        original_interest_coin: string;
+        /** Present only in transactions where nature is `interest`. Represents the amount accrued in `original_interest_coin`, before conversion to another asset. **/
+        interest_amount_in_original_coin: string;
     }
 
     /** Celsius transaction summary */
