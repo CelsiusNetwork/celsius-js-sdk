@@ -4,12 +4,16 @@
 @import "{{ site.theme }}";
 
 .page-header {
-  background-color: #4156A6;
-  background-image: none;
+  background-image: linear-gradient(to bottom left, #f7cc69, #f76c1d);
 
   .project-name, .logo {
     cursor: pointer
   }
+}
+
+h1,h2,a.btn {
+  opacity: 1;
+  color: #ffffff;
 }
 
 .main-content {
@@ -22,7 +26,7 @@
 
   a {
     &, &:link, &:visited, &:hover, &:focus, &:active {
-      color: #4156A6;
+      color: #f76c1d;
       text-decoration: none;
     }
   }
@@ -38,7 +42,7 @@
 
   &.back {
     font-weight: bold;
-    border-color: #4156A6;
+    border-color: #f76c1d;
     margin: 2em 0;
   }
 }
