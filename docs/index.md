@@ -2,13 +2,13 @@
 
 # What is the Celsius API?
 
-The Celsius API offers partners the ability to use features offered by Celsius Network or delegate access to Celsius' features.
+The Celsius API offers partners the ability to use features offered by Celsius or delegate access to Celsius' features.
 
 To get started with the Celsius API, please review our partnership types offered below and choose the option that best suits your needs. 
 
 # Partnership types
 
-Depending upon your specific integration needs, there are multiple different ways in which your project can utilize the Celsius Network API.
+Depending upon your specific integration needs, there are multiple different ways in which your project can utilize the Celsius API.
 When consulting technical docs please make sure that you are looking at the partnership type that is relevant to you.
 
 

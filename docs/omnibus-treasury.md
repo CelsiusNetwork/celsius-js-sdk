@@ -5,9 +5,9 @@
 
 ## Use case
 
-Celsius Omnibus Treasury partnership type is ideal for integrating existing Celsius Network users to third-party applications.
+Celsius Omnibus Treasury partnership type is ideal for integrating existing Celsius users to third-party applications.
 
-Using our user-generated API Keys from within the Celsius Network mobile app, the Omnibus Treasury application can interface the Celsius API on the behalf of the user. 
+Using our user-generated API Keys from within the Celsius mobile app, the Omnibus Treasury application can interface the Celsius API on the behalf of the user. 
 
 ### Features
 
@@ -34,10 +34,10 @@ Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695
 
 ### Security
 
-1. Partners receive a **partner-token** from Celsius Network that will be used to authenticate that partner on Celsius API.
-2. Partner shows instructions to his users in their app, prompting them to generate API keys from the Celsius Network application and paste them to the partner application. Users must open a Celsius Network account with the official Celsius app and pass KYC to be able to generate API keys. 
+1. Partners receive a **partner-token** from Celsius that will be used to authenticate that partner on Celsius API.
+2. Partner shows instructions to his users in their app, prompting them to generate API keys from the Celsius application and paste them to the partner application. Users must open a Celsius account with the official Celsius app and pass KYC to be able to generate API keys. 
 3. Partner uses the user-generated API key to authenticate users on Celsius API and use Celsius features on their behalf.
-4. Responses sent back from the Celsius API will be signed using Celsius Network's private key, and will be automatically verified on the SDK receiving end with the hardcoded public key. 
+4. Responses sent back from the Celsius API will be signed using Celsius's private key, and will be automatically verified on the SDK receiving end with the hardcoded public key. 
 
 ### Initializing the SDK
 

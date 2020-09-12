@@ -5,7 +5,7 @@
 
 ## Use case
 
-The Omnbius Integration API offers partners the ability to use Celsius features as a legal entity rather than as a user. This allows partners to reap the benefits and features of Celsius Network that to be accessed through the API rather than from a mobile app. 
+The Omnbius Integration API offers partners the ability to use Celsius features as a legal entity rather than as a user. This allows partners to reap the benefits and features of Celsius that to be accessed through the API rather than from a mobile app. 
 
 ### Features
 
@@ -20,9 +20,9 @@ Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695
 
 ### Security
 
-1. Each partner will receive a **partner-token** and the **api-key** from Celsius Network that will be used to authenticate that partner on Celsius API.
+1. Each partner will receive a **partner-token** and the **api-key** from Celsius that will be used to authenticate that partner on Celsius API.
 2. Each request sent to the Celsius API is followed by the partner token and API key to successfully authenticate the partner.
-3. Responses sent back from the Celsius API will be signed using Celsius Network's private key, and will automatically be verified on the SDK receiving end with the hardcoded public key. 
+3. Responses sent back from the Celsius API will be signed using Celsius's private key, and will automatically be verified on the SDK receiving end with the hardcoded public key. 
 
 ### Initializing the SDK
 

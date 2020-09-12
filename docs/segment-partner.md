@@ -5,9 +5,9 @@
 
 ## Use case
 
-The Segmented Integration API offers partners a way to transparently give their existing users access to Celsius Network features. 
+The Segmented Integration API offers partners a way to transparently give their existing users access to Celsius features. 
 
-Partners can use Celsius’ features on behalf of their existing or new users, regardless of whether or not those users are already a part of the Celsius Network. Users created through the Segmented Integration API will be completely independent of in-app Celsius users.
+Partners can use Celsius’ features on behalf of their existing or new users, regardless of whether or not those users are already a part of the Celsius. Users created through the Segmented Integration API will be completely independent of in-app Celsius users.
 
 ### Features
 
@@ -25,9 +25,9 @@ Please consult the [Postman docs](https://documenter.getpostman.com/view/4207695
 
 ### Security
 
-1. Partners receive a **partner-token** from Celsius Network that will be used to authenticate that partner on Celsius API.
+1. Partners receive a **partner-token** from Celsius that will be used to authenticate that partner on Celsius API.
 2. Each request Partner sends for their individual user must be accompanied by a unique **user-token** for that user. The user token will differentiate each unique partner's user on the Celsius API.
-3. Responses sent back from the Celsius API will be signed using Celsius Network's private key, and will be automatically verified on the SDK receiving end with the hardcoded public key. 
+3. Responses sent back from the Celsius API will be signed using Celsius's private key, and will be automatically verified on the SDK receiving end with the hardcoded public key. 
 
 ### Initializing the SDK
 
