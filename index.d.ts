@@ -322,5 +322,41 @@ declare module 'celsius-sdk' {
         PRODUCTION = 'production'
     }
 
+    /**
+     * Class which encapsulates errors raised within Celsius SDK.
+     *
+     * If the error has occurred internally within the Celsius SDK, status and slug properties will be null.
+     */
+    export class CelsiusSDKError extends Error {
+        /** Number representing HTTP status code returned by the Wallet API. Will be null if the error didn't occur on Wallet API. **/
+        status: number | null
+        /** Message containing a more detailed description of the error which occurred. **/
+        message: string
+        /** Value returned by Wallet API that is used to distinguish between different errors. Will be null if the error didn't occur on Wallet API. **/
+        slug: string
+        /** Original error that was thrown and used to construct CelsiusSDKError. Will be null in case an instance of CelsiusSDKError is explicitly being thrown. **/
+        originalError: Error | null
+    }
+
+    /**
+     * Class which encapsulates validation errors before the request gets processed further.
+     */
+    export class ValidationError {
+        /** Number representing HTTP status code returned by the Wallet API. **/
+        status: number
+        /** Array of ClassValidatorError objects. See https://www.npmjs.com/package/class-validator#validation-errors for more details. **/
+        message: ClassValidatorError[]
+    }
+
+    interface ClassValidatorError {
+        target: Object; // Object that was validated.
+        property: string; // Object's property that haven't pass validation.
+        value: any; // Value that haven't pass a validation.
+        constraints?: { // Constraints that failed validation with error messages.
+            [type: string]: string;
+        };
+        children?: ClassValidatorError[]; // Contains all nested validation errors of the property
+    }
+
     export function Celsius(config: CelsiusConfigurationInstance): Promise<CelsiusInstance>;
 }

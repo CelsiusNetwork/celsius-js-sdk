@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.14] - 2020-11-25
+- Fixing error handling to cover unhandled cases such as Wallet API being offline and signature verification failing.
+- Adding a new class `CelsiusSDKError` that encapsulates errors raised within the Celsius SDK. This class extends the Error class and contains the following additional attributes:
+    - slug - Unique identifier tied to the error, returned by the API;
+    - status - Status code returned by the API;
+    - originalError - Original error which was used to instantiate CelsiusSDKError.
+- Exporting `CelsiusSDKError` and `ValidationError` classes used by Celsius SDK to encapsulate errors.
+- Fixing unhandled promise rejections in http-client.js::post method. Kudos to [@vigan-abd](https://github.com/vigan-abd) who noticed the issue and provided the code to fix it!
+
 ## [0.10.13] - 2020-07-21
 - Adding new properties to response received when using ```CelsiusInstance.getTransctionSummary(pagination, userSecret)``` and ```CelsiusInstance.getCoinTransactions(coin, pagination, userSecret)```.
     * original_interest_coin - Name of the original coin for which the interest has been accrued.
