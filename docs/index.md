@@ -33,4 +33,4 @@ Depending on the partner needs, there are different methods for limiting which a
 
 # Becoming a partner
 
-[Become a Partner!](https://celsiusnetwork.typeform.com/to/LdP21V)
+[Become a Partner!](mailto:partners@celsius.network)
