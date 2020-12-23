@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.15] - 2020-12-23
+- Adding a new property `amount_precise` to the `CelsiusTransactionRecord` type. It provides the exact transaction amount, without any rounding applied.
+- Fixing typos in jsdoc. Kudos to [@saginadir](https://github.com/saginadir) who noticed the typo and contributed code that fixes it!
+
 ## [0.10.14] - 2020-11-25
 - Fixing error handling to cover unhandled cases such as Wallet API being offline and signature verification failing.
 - Adding a new class `CelsiusSDKError` that encapsulates errors raised within the Celsius SDK. This class extends the Error class and contains the following additional attributes:

@@ -111,10 +111,12 @@ declare module 'celsius-sdk' {
     }
 
     interface CelsiusTransactionRecord extends CelsiusCoinBalanceResponse {
-        /** The amount in this coin */
+        /** The amount in this coin rounded down to coin's decimals */
         amount: string;
         /** The amount in US dollars for this coin */
         amount_usd: string,
+        /** The amount in this coin without any rounding applied **/
+        amount_precise: string,
         /** The coin of the transaction */
         coin: string;
         /** In which state the transaction is in */
