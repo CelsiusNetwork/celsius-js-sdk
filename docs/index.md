@@ -19,7 +19,7 @@ When consulting technical docs please make sure that you are looking at the part
 | Transparently create Celsius wallets for your users | <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#f85757;">❌</span> |
 | Run KYC checks on your users | <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> | <span style="color:#f85757;">❌</span> | 
 | Use Celsius on behalf of existing Celsius users | <span style="color:#f85757;">❌</span> |  <span style="color:#f85757;">❌</span> | <span style="color:#4FB895;">✔</span> |
-| | [Open docs](/integration-partner.html) | [Open docs](/segmented-partner.html) | [Open docs](/omnibus-treasury.html) |
+| | [Open docs](/integration-partner.html) | [Open docs](/segment-partner.html) | [Open docs](/omnibus-treasury.html) |
 
 # Withdrawal schemes
 
