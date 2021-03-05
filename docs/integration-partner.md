@@ -36,7 +36,7 @@ const apiKey = process.env.API_KEY // Should be kept secret, can be regenerated
 Celsius({
     authMethod: AUTH_METHODS.API_KEY, // We are telling the SDK that we are authenticating using a combination of an API key and a Partner token
     partnerKey: partnerKey,
-    environment: ENVIRONMENT.staging // If not present, default is production.
+    environment: ENVIRONMENT.STAGING // If not present, default is production.
 }).then((celsius) => {
   // your code
 })
