@@ -36,7 +36,7 @@ const apiKey = process.env.API_KEY // Should be kept secret, can be regenerated
 Celsius({
     authMethod: AUTH_METHODS.API_KEY, // We are telling the SDK that we are authenticating using a combination of an API key and a Partner token
     partnerKey: partnerKey,
-    environment: ENVIRONMENT.staging // If not present, default is production.
+    environment: ENVIRONMENT.STAGING // If not present, default is production.
 }).then((celsius) => {
   // your code
 })
@@ -91,7 +91,7 @@ const pagination = {
   perPage: 20
 }
 
-celsius.getTransctionSummary(pagination, apiKey).then((transactions) => {
+celsius.getTransactionSummary(pagination, apiKey).then((transactions) => {
     console.log(transactions)
 })
 .catch((error) => {
@@ -180,5 +180,5 @@ celsius.getStatistics(apiKey, '1552388292').then((statistics) => {
 | Bitcoin       | TBTC      | [https://bitcoinfaucet.uo1.net/](https://bitcoinfaucet.uo1.net/) | 
 | Bitcoin Cash  | TBCH      | [https://developer.bitcoin.com/faucets/bch/](https://developer.bitcoin.com/faucets/bch/) | 
 | Bitcoin Gold  | TBTG      | [https://test-faucet.bitcoingold.org/](https://test-faucet.bitcoingold.org/) |
-| Ethereum      | TETH      | [https://faucet.kovan.network/](https://faucet.kovan.network/) |
+| Ethereum      | TETH      | [https://faucet.ropsten.be/](https://faucet.ropsten.be/) |
 | Litecoin      | TLTC      | [http://testnet.litecointools.com/](http://testnet.litecointools.com/) |
