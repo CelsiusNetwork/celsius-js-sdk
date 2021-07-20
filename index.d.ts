@@ -148,6 +148,7 @@ declare module 'celsius-sdk' {
         first_name: string;
         last_name: string;
         middle_name?: string;
+        email?: string;
         title?: 'mr' | 'ms' | 'mrs';
         /** ISO-8601 date string **/
         date_of_birth: string;
