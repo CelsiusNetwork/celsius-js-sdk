@@ -304,7 +304,7 @@ declare module 'celsius-sdk' {
             coin: string;
             rate: string;
             currency: Currency;
-        }
+        }[]
     }
 
     interface Currency {
