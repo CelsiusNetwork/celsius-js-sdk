@@ -295,7 +295,7 @@ declare module 'celsius-sdk' {
         changeMetadata(id: string, data: object, userSecret: string): Promise<UserMetadataResponse>;
         changeWithdrawalAddress(id: string, data: WithdrawalAddress, userSecret: string): Promise<UserWithdrawalAddress>;
         createUser(user: InstitutionalUser, userSecret: string): Promise<UserCreateResponse>
-        getInterestRates(): Promise<InterestRates>
+        getInterestRates(): Promise<InterestRates[]>
         getStatistics(userSecret: string, timestamp?: string): Promise<CelsiusStatisticsResponse>
     }
 
@@ -304,7 +304,7 @@ declare module 'celsius-sdk' {
             coin: string;
             rate: string;
             currency: Currency;
-        }[]
+        }
     }
 
     interface Currency {
