@@ -25,7 +25,7 @@
     "test": "echo Passed;"
   },
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "form-data": "^2.3.3"
   },
   "devDependencies": {
