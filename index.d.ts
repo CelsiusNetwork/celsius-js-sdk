@@ -298,6 +298,7 @@ declare module 'celsius-sdk' {
         getInterestRates(): Promise<InterestRates[]>
         getStatistics(userSecret: string, timestamp?: string): Promise<CelsiusStatisticsResponse>
         confirmTermsOfUse(termsOfUseId: string, confirmationDate: Date, userSecret: string): Promise<{success: boolean}>
+        health(message: string, userSecret:string): Promise<{originalMessage: string}>
     }
 
     interface InterestRates {

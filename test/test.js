@@ -108,6 +108,13 @@ describe('SDK Test', async function () {
     let { interestRates } = await instance.getInterestRates()
     expect(interestRates).to.be.a('array')
   })
+
+  it('Should returns a copy of the message', async () => {
+    const message = 'celsius'
+    let { originalMessage } = await instance.health(message)
+    expect(originalMessage).to.be.a('string')
+    expect(e.message).to.be.equal(message)
+  })
 })
 
 function keysToUpperCase(obj) {
