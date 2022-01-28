@@ -284,8 +284,8 @@ declare module 'celsius-sdk' {
         getBalanceSummary(userSecret: string): Promise<CelsiusBalanceSummaryResponse>;
         getCoinBalance(coin: string, userSecret: string): Promise<CelsiusCoinBalanceResponse>;
         getInterestSummary(userSecret: string): Promise<CelsiusInterestSummaryResponse>;
-        getTransactionSummary(pagination: CelsiusPagination, userSecret: string): Promise<CelsiusTransactionSummary>;
-        getCoinTransactions(coin: string, pagination: CelsiusPagination, userSecret: string): Promise<CelsiusTransactionSummary>;
+        getTransactionSummary(pagination: CelsiusPaginationOptions, userSecret: string): Promise<CelsiusTransactionSummary>;
+        getCoinTransactions(coin: string, pagination: CelsiusPaginationOptions, userSecret: string): Promise<CelsiusTransactionSummary>;
         getDeposit(coin: string, userSecret: string): Promise<{address: string}>;
         withdraw(coin: string, formFields: CelsiusWithdrawOptions, userSecret: string): Promise<{transaction_id: string}>;
         getWithdrawalAddressForCoin(coin: string, userSecret: string): Promise<{address: string}>
