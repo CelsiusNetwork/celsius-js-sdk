@@ -284,8 +284,8 @@ declare module 'celsius-sdk' {
         getBalanceSummary(userSecret: string): Promise<CelsiusBalanceSummaryResponse>;
         getCoinBalance(coin: string, userSecret: string): Promise<CelsiusCoinBalanceResponse>;
         getInterestSummary(userSecret: string): Promise<CelsiusInterestSummaryResponse>;
-        getTransactionSummary(pagination: CelsiusPagination, userSecret: string): Promise<CelsiusTransactionSummary>;
-        getCoinTransactions(coin: string, pagination: CelsiusPagination, userSecret: string): Promise<CelsiusTransactionSummary>;
+        getTransactionSummary(pagination: CelsiusPaginationOptions, userSecret: string): Promise<CelsiusTransactionSummary>;
+        getCoinTransactions(coin: string, pagination: CelsiusPaginationOptions, userSecret: string): Promise<CelsiusTransactionSummary>;
         getDeposit(coin: string, userSecret: string): Promise<{address: string}>;
         withdraw(coin: string, formFields: CelsiusWithdrawOptions, userSecret: string): Promise<{transaction_id: string}>;
         getWithdrawalAddressForCoin(coin: string, userSecret: string): Promise<{address: string}>
@@ -295,8 +295,9 @@ declare module 'celsius-sdk' {
         changeMetadata(id: string, data: object, userSecret: string): Promise<UserMetadataResponse>;
         changeWithdrawalAddress(id: string, data: WithdrawalAddress, userSecret: string): Promise<UserWithdrawalAddress>;
         createUser(user: InstitutionalUser, userSecret: string): Promise<UserCreateResponse>
-        getInterestRates(): Promise<InterestRates>
+        getInterestRates(): Promise<InterestRates[]>
         getStatistics(userSecret: string, timestamp?: string): Promise<CelsiusStatisticsResponse>
+        confirmTermsOfUse(termsOfUseId: string, confirmationDate: Date, userSecret: string): Promise<{success: boolean}>
     }
 
     interface InterestRates {
