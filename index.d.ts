@@ -80,6 +80,18 @@ declare module 'celsius-sdk' {
         amount_in_usd: string;
     }
 
+    interface SupportedCountriesResponse {
+        alpha2: string;
+        alpha3: string;
+        countryCallingCodes: string[];
+        currencies: string[];
+        emoji: string;
+        ioc: string;
+        languages: string[];
+        name: string;
+        status: string;
+    }
+
     /**
      * Celsius Withdraw Options
      */
@@ -299,6 +311,7 @@ declare module 'celsius-sdk' {
         getStatistics(userSecret: string, timestamp?: string): Promise<CelsiusStatisticsResponse>
         confirmTermsOfUse(termsOfUseId: string, confirmationDate: Date, userSecret: string): Promise<{success: boolean}>
         health(message: string, userSecret:string): Promise<{originalMessage: string}>
+        getSupportedCountries(timestamp: string, userSecret:string): Promise<SupportedCountriesResponse>;
     }
 
     interface InterestRates {
