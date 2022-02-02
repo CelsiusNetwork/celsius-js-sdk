@@ -251,6 +251,54 @@ declare module 'celsius-sdk' {
         kyc_status: KycStatus;
     }
 
+    interface CreateUser {
+        first_name: string,
+        last_name: string,
+        middle_name?: string,
+        email?: string,
+        title?: string,
+        date_of_birth: Date,
+        citizenship: string,
+        country: string,
+        state?: string,
+        city: string,
+        building_number?: string,
+        flat_number?: string,
+        itin?: string,
+        national_id?: string,
+        ssn?: string,
+        gender: string,
+        user_token: string
+    }
+
+    interface UpdateUser {
+        first_name: string,
+        last_name: string,
+        middle_name?: string,
+        email?: string,
+        title?: string,
+        date_of_birth: Date,
+        citizenship: string,
+        country: string,
+        state?: string,
+        city: string,
+        building_number?: string,
+        flat_number?: string,
+        itin?: string,
+        national_id?: string,
+        ssn?: string,
+        gender: string,
+    }
+
+    interface UpdateEmail{
+        email: string
+    }
+
+    interface CreateUserResponse {
+        userId: string,
+        userToken: string
+    }
+
     interface UserMetadataResponse {
         message: 'User`s metadata has been updated';
     }
@@ -320,6 +368,9 @@ declare module 'celsius-sdk' {
         getSupportedCountries(timestamp: string, userSecret:string): Promise<SupportedCountriesResponse>
         getKycVerificationStatus(userId:string, userSecret:string):Promise<KYCStatusResponse>
         startKycVerification(userId:string, documentType: string, userDocuments: CelsiusKycFiles, userSecret: string):Promise<{message: string}>
+        createUserKyc(user: CreateUser, userSecret: string):Promise<CreateUserResponse>
+        updateUser(userId:string, user:UpdateUser, userSecret: string):Promise<{status:boolean}>
+        updateUserEmail(email:UpdateEmail, userSecret:string):Promise<{status:boolean}>
     }
 
     interface InterestRates {
