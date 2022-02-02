@@ -365,7 +365,7 @@ declare module 'celsius-sdk' {
         getStatistics(userSecret: string, timestamp?: string): Promise<CelsiusStatisticsResponse>
         confirmTermsOfUse(termsOfUseId: string, confirmationDate: Date, userSecret: string): Promise<{success: boolean}>
         health(message: string, userSecret:string): Promise<{originalMessage: string}>
-        getSupportedCountries(timestamp: string, userSecret:string): Promise<SupportedCountriesResponse>
+        getSupportedCountries(userSecret:string): Promise<SupportedCountriesResponse[]>
         getKycVerificationStatus(userId:string, userSecret:string):Promise<KYCStatusResponse>
         startKycVerification(userId:string, documentType: string, userDocuments: CelsiusKycFiles, userSecret: string):Promise<{message: string}>
         createUserKyc(user: CreateUser, userSecret: string):Promise<CreateUserResponse>
