@@ -312,7 +312,7 @@ declare module 'celsius-sdk' {
         getSupportedCountries(userSecret:string): Promise<SupportedCountriesResponse[]>
         getKycVerificationStatus(userId:string, userSecret:string):Promise<KYCStatusResponse>
         startKycVerification(userId:string, documentType: string, userDocuments: CelsiusKycFiles, userSecret: string):Promise<{message: string}>
-        createUserKyc(user: CreateUser, userSecret: string):Promise<CreateUserResponse>
+        createUser(user: CreateUser, userSecret: string): Promise<CreateUserResponse>
         updateUser(userId:string, user:UpdateUser, userSecret: string):Promise<{status:boolean}>
         updateUserEmail(email:UpdateEmail, userSecret:string):Promise<{status:boolean}>
     }
