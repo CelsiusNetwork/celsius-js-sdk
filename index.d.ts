@@ -205,15 +205,6 @@ declare module 'celsius-sdk' {
         document_back_image: string;
     }
 
-    interface PaginationOptions {
-        page?: number;
-        limit?: number;
-        email?: string;
-        name?: string;
-        orderBy?: string;
-        direction?: string;
-    }
-
     interface User {
         id: string;
         auth0_user_id: string;
@@ -299,49 +290,6 @@ declare module 'celsius-sdk' {
         userToken: string
     }
 
-    interface UserMetadataResponse {
-        message: 'User`s metadata has been updated';
-    }
-
-    interface UserCreateResponse {
-        message: 'User has been created';
-    }
-
-    interface UserWithdrawalAddress {
-        user_id: string;
-        coin: string;
-        bitgo_wallet_id: string;
-        address: string;
-        manually_set: boolean;
-        created_at: string;
-        updated_at: string;
-        version: number;
-    }
-
-    interface UsersResponse {
-        users: {
-            total: number,
-            results: User[]
-        }
-    }
-
-    interface WithdrawalAddress {
-        short: string,
-        address: string
-    }
-
-    interface InstitutionalUser {
-        companyName: string;
-        email: string;
-        country: string;
-        state?: string;
-        taxNumber?: string;
-        contactPerson: string;
-        contactEmail: string;
-        note?: string;
-        withdrawalWallets: WithdrawalAddress[];
-    }
-
     interface CelsiusInstance {
         currencies: string[];
         getKycStatus(userSecret: string): Promise<KycStatus>;
@@ -357,10 +305,6 @@ declare module 'celsius-sdk' {
         getWithdrawalAddressForCoin(coin: string, userSecret: string): Promise<{address: string}>
         getWithdrawalAddresses(userSecret: string): Promise<CelsiusWithdrawalAddresses>
         getTransactionStatus(transaction: string, userSecret: string): Promise<CelsiusWithdrawalTransaction>;
-        getUsers(pagination: PaginationOptions, userSecret: string): Promise<UsersResponse>;
-        changeMetadata(id: string, data: object, userSecret: string): Promise<UserMetadataResponse>;
-        changeWithdrawalAddress(id: string, data: WithdrawalAddress, userSecret: string): Promise<UserWithdrawalAddress>;
-        createUser(user: InstitutionalUser, userSecret: string): Promise<UserCreateResponse>
         getInterestRates(): Promise<InterestRates[]>
         getStatistics(userSecret: string, timestamp?: string): Promise<CelsiusStatisticsResponse>
         confirmTermsOfUse(termsOfUseId: string, confirmationDate: Date, userSecret: string): Promise<{success: boolean}>
@@ -368,7 +312,7 @@ declare module 'celsius-sdk' {
         getSupportedCountries(userSecret:string): Promise<SupportedCountriesResponse[]>
         getKycVerificationStatus(userId:string, userSecret:string):Promise<KYCStatusResponse>
         startKycVerification(userId:string, documentType: string, userDocuments: CelsiusKycFiles, userSecret: string):Promise<{message: string}>
-        createUserKyc(user: CreateUser, userSecret: string):Promise<CreateUserResponse>
+        createUser(user: CreateUser, userSecret: string): Promise<CreateUserResponse>
         updateUser(userId:string, user:UpdateUser, userSecret: string):Promise<{status:boolean}>
         updateUserEmail(email:UpdateEmail, userSecret:string):Promise<{status:boolean}>
     }
