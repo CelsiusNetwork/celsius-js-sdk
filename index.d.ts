@@ -20,7 +20,7 @@ declare module 'celsius-sdk' {
     interface CelsiusBalanceSummaryResponse {
         /** Contains user's balance per coin. **/
         balance: {
-            [key: string]: number
+            [key: string]: string
         }
     }
 
