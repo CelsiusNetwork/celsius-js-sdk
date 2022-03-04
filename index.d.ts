@@ -251,6 +251,8 @@ declare module 'celsius-sdk' {
         country: string,
         state?: string,
         city: string,
+        zip: string,
+        street: string,
         building_number?: string,
         flat_number?: string,
         itin?: string,
@@ -271,6 +273,8 @@ declare module 'celsius-sdk' {
         country: string,
         state?: string,
         city: string,
+        zip: string,
+        street: string,
         building_number?: string,
         flat_number?: string,
         itin?: string,
@@ -310,7 +314,7 @@ declare module 'celsius-sdk' {
         getSupportedCountries(userSecret:string): Promise<SupportedCountriesResponse[]>
         getKycVerificationStatus(userId:string, userSecret:string):Promise<KYCStatusResponse>
         startKycVerification(userId:string, documentType: string, userDocuments: CelsiusKycFiles, userSecret: string):Promise<{message: string}>
-        createUser(user: CreateUser, userSecret: string): Promise<CreateUserResponse>
+        createUser(user: CreateUser): Promise<CreateUserResponse>
         updateUser(userId:string, user:UpdateUser, userSecret: string):Promise<{status:boolean}>
         updateUserEmail(email:UpdateEmail, userSecret:string):Promise<{status:boolean}>
     }
