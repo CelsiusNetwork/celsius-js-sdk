@@ -80,12 +80,28 @@ declare module 'celsius-sdk' {
         amount_in_usd: string;
     }
 
+    interface SupportedCountriesResponse {
+        alpha2: string;
+        alpha3: string;
+        countryCallingCodes: string[];
+        currencies: string[];
+        emoji: string;
+        ioc: string;
+        languages: string[];
+        name: string;
+        status: string;
+    }
+
+    interface KYCStatusResponse {
+        status: string,
+        reasons: object
+    }
+
+
     /**
      * Celsius Withdraw Options
      */
     interface CelsiusWithdrawOptions {
-        /** The coin you wish to withdraw */
-        coin: string;
         /** This is the withdrawal amount you want */
         amount: number;
         /** This is destination address that you want the tokens to be deposited  */
@@ -187,15 +203,6 @@ declare module 'celsius-sdk' {
         document_back_image: string;
     }
 
-    interface PaginationOptions {
-        page?: number;
-        limit?: number;
-        email?: string;
-        name?: string;
-        orderBy?: string;
-        direction?: string;
-    }
-
     interface User {
         id: string;
         auth0_user_id: string;
@@ -233,47 +240,56 @@ declare module 'celsius-sdk' {
         kyc_status: KycStatus;
     }
 
-    interface UserMetadataResponse {
-        message: 'User`s metadata has been updated';
+    interface CreateUser {
+        first_name: string,
+        last_name: string,
+        middle_name?: string,
+        email?: string,
+        title?: string,
+        date_of_birth: Date,
+        citizenship: string,
+        country: string,
+        state?: string,
+        city: string,
+        zip: string,
+        street: string,
+        building_number?: string,
+        flat_number?: string,
+        itin?: string,
+        national_id?: string,
+        ssn?: string,
+        gender: string,
+        user_token: string
     }
 
-    interface UserCreateResponse {
-        message: 'User has been created';
+    interface UpdateUser {
+        first_name: string,
+        last_name: string,
+        middle_name?: string,
+        email?: string,
+        title?: string,
+        date_of_birth: Date,
+        citizenship: string,
+        country: string,
+        state?: string,
+        city: string,
+        zip: string,
+        street: string,
+        building_number?: string,
+        flat_number?: string,
+        itin?: string,
+        national_id?: string,
+        ssn?: string,
+        gender: string,
     }
 
-    interface UserWithdrawalAddress {
-        user_id: string;
-        coin: string;
-        bitgo_wallet_id: string;
-        address: string;
-        manually_set: boolean;
-        created_at: string;
-        updated_at: string;
-        version: number;
+    interface UpdateEmail{
+        email: string
     }
 
-    interface UsersResponse {
-        users: {
-            total: number,
-            results: User[]
-        }
-    }
-
-    interface WithdrawalAddress {
-        short: string,
-        address: string
-    }
-
-    interface InstitutionalUser {
-        companyName: string;
-        email: string;
-        country: string;
-        state?: string;
-        taxNumber?: string;
-        contactPerson: string;
-        contactEmail: string;
-        note?: string;
-        withdrawalWallets: WithdrawalAddress[];
+    interface CreateUserResponse {
+        userId: string,
+        userToken: string
     }
 
     interface CelsiusInstance {
@@ -284,19 +300,23 @@ declare module 'celsius-sdk' {
         getBalanceSummary(userSecret: string): Promise<CelsiusBalanceSummaryResponse>;
         getCoinBalance(coin: string, userSecret: string): Promise<CelsiusCoinBalanceResponse>;
         getInterestSummary(userSecret: string): Promise<CelsiusInterestSummaryResponse>;
-        getTransactionSummary(pagination: CelsiusPagination, userSecret: string): Promise<CelsiusTransactionSummary>;
-        getCoinTransactions(coin: string, pagination: CelsiusPagination, userSecret: string): Promise<CelsiusTransactionSummary>;
+        getTransactionSummary(pagination: CelsiusPaginationOptions, userSecret: string): Promise<CelsiusTransactionSummary>;
+        getCoinTransactions(coin: string, pagination: CelsiusPaginationOptions, userSecret: string): Promise<CelsiusTransactionSummary>;
         getDeposit(coin: string, userSecret: string): Promise<{address: string}>;
         withdraw(coin: string, formFields: CelsiusWithdrawOptions, userSecret: string): Promise<{transaction_id: string}>;
         getWithdrawalAddressForCoin(coin: string, userSecret: string): Promise<{address: string}>
         getWithdrawalAddresses(userSecret: string): Promise<CelsiusWithdrawalAddresses>
         getTransactionStatus(transaction: string, userSecret: string): Promise<CelsiusWithdrawalTransaction>;
-        getUsers(pagination: PaginationOptions, userSecret: string): Promise<UsersResponse>;
-        changeMetadata(id: string, data: object, userSecret: string): Promise<UserMetadataResponse>;
-        changeWithdrawalAddress(id: string, data: WithdrawalAddress, userSecret: string): Promise<UserWithdrawalAddress>;
-        createUser(user: InstitutionalUser, userSecret: string): Promise<UserCreateResponse>
-        getInterestRates(): Promise<InterestRates>
+        getInterestRates(): Promise<InterestRates[]>
         getStatistics(userSecret: string, timestamp?: string): Promise<CelsiusStatisticsResponse>
+        confirmTermsOfUse(termsOfUseId: string, confirmationDate: Date, userSecret: string): Promise<{success: boolean}>
+        health(message: string): Promise<{originalMessage: string}>
+        getSupportedCountries(userSecret:string): Promise<SupportedCountriesResponse[]>
+        getKycVerificationStatus(userId:string, userSecret:string):Promise<KYCStatusResponse>
+        startKycVerification(userId:string, documentType: string, userDocuments: CelsiusKycFiles, userSecret: string):Promise<{message: string}>
+        createUser(user: CreateUser): Promise<CreateUserResponse>
+        updateUser(userId:string, user:UpdateUser, userSecret: string):Promise<{status:boolean}>
+        updateUserEmail(email:UpdateEmail, userSecret:string):Promise<{status:boolean}>
     }
 
     interface InterestRates {

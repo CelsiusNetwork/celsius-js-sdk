@@ -4,6 +4,62 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2022-03-08
+### Added 
+- Functionalities: 
+  - Added functionality to `http-client` for sending PUT requests. Kudos to [@ptlls](https://github.com/ptlls)
+- Methods:
+  - ```CelsiusInstance.getSupportedCountries(userSecret)``` that returns the list of countries supported by Celsius. 
+  - ```CelsiusInstance.health(message)``` checks the health of the server. Kudos to [@andreujuanc](https://github.com/andreujuanc)
+  - ```CelsiusInstance.getKycVerificationStatus(userId, userSecret)``` checks the KYC status, similar to existing `getKycStatus` method, but takes also `userId` as a parameter
+   and returns a response containing property `status` which shows the status of KYC and `reason` which states the reason for the status if needed.
+  - ```CelsiusInstance.startKycVerification(userId, documentType, userDocuments, userSecret)``` starts the KYC verification same as existing `verifyKyc` method, but it doesn't 
+   create the user, but rather receives an existing user's id - `userId` as a parameter
+  - ```CelsiusInstance.createUser(user)``` which returns `userId` which can be used to manipulate user info and starting KYC verification. Also, the `user_token` property will be used as `userSecret`
+  - ```CelsiusInstance.updateUser(userId, user, userSecret)``` 
+  - ```CelsiusInstance.updateUserEmail(email, userSecret)```
+  - ```CelsiusInstance.confirmTermsOfUse(termsOfUseId, confirmationDate, userSecret)``` use to accept the latest terms of use. Kudos to [@ptlls](https://github.com/ptlls)
+- Types:
+  - `CreateUser` with properties `first_name`, `last_name`, `middle_name`?, `email`?, `title`?, `date_of_birth`,
+    `citizenship`, `country`, `state`?, `city`, `zip`, `street`, `building_number`?, `flat_number`, `itin`?, national_id?,
+    `ssn`?, `gender`, `user_token`
+  - `UpdateUser` with properties `first_name`, `last_name`, `middle_name`?, `email`?,`title`?, `date_of_birth`,
+    `citizenship`,`country`,`state`?,`city`,`zip`, `street`,`building_number`?,`flat_number`?,`itin`?,
+    `national_id`?, `ssn`?, `gender`,
+  - `UpdateEmail` with `email` property, for updating user email.
+  - `CreateUserResponse` with properties `userId`, `userToken`
+  - `SupportedCountriesResponse` with properties `alpha2`, `alpha3`, `countryCallingCodes`, `currencies`
+    `emoji`, `ioc`, `languages`, `name` and `status`
+  - `KYCStatusResponse` with properties `status` and `reasons`
+### Updated
+- Updated methods:
+  - `getInterestRates` return type changed to `Promise<InterestRates[]>` . Kudos to [@barathvk](https://github.com/barathvk)
+  - `getTransactionSummary`, pagination options parameter changed from `PaginationOptions` to `CelsiusPaginationOptions`. Kudos to [@crypto-diplodocus](https://github.com/crypto-diplodocus) and [@rbayliss](https://github.com/rbayliss)
+  - `getCoinTransactions`, pagination options changed from `PaginationOptions` to `CelsiusPaginationOptions`. Kudos to [@crypto-diplodocus](https://github.com/crypto-diplodocus) and [@rbayliss](https://github.com/rbayliss)
+- Updated types:
+  - added `coin` property to `CelsiusWithdrawOptions`
+- Updated dependencies:
+  - Bump `nokogiri` from 1.10.8 to 1.12.5
+  - Bump `path-parse` from 1.0.6 to 1.0.7
+  - Bump `addressable` from 2.5.2 to 2.8.0
+  - Bump `hosted-git-info` from 2.7.1 to 2.8.9
+  - Bump `lodash` from 4.17.19 to 4.17.21
+  - Bump `axios` from 0.18.1 to 0.21.1
+### Deleted: 
+- Deleted methods:
+  - ```CelsiusInstance.createUser```
+  - ```CelsiusInstance.getUsers```
+  - ```CelsiusInstance.changeMetadata```
+  - ```CelsiusInstance.changeWithdrawalAddress```
+- Deleted types:
+  - `PaginationOptions`
+  - `UserWithdrawalAddress`
+  - `UserMetadataResponse` 
+  - `UserCreateResponse`
+  - `UsersResponse` 
+  - `WithdrawalAddress` 
+  - `InstitutionalUser`
+
 ## [0.10.15] - 2020-12-23
 - Adding a new property `amount_precise` to the `CelsiusTransactionRecord` type. It provides the exact transaction amount, without any rounding applied.
 - Fixing typos in jsdoc. Kudos to [@saginadir](https://github.com/saginadir) who noticed the typo and contributed code that fixes it!
