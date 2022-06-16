@@ -97,6 +97,11 @@ declare module 'celsius-sdk' {
         reasons: object
     }
 
+    interface GetTermsOfUseResponse {
+        terms_of_use_id: string,
+        terms_of_use: string,
+        confirmation_date: string
+    }
 
     /**
      * Celsius Withdraw Options
@@ -310,6 +315,7 @@ declare module 'celsius-sdk' {
         getInterestRates(): Promise<InterestRates[]>
         getStatistics(userSecret: string, timestamp?: string): Promise<CelsiusStatisticsResponse>
         confirmTermsOfUse(termsOfUseId: string, confirmationDate: Date, userSecret: string): Promise<{success: boolean}>
+        getTermsOfUse(userSecret: string): Promise<GetTermsOfUseResponse>
         health(message: string): Promise<{originalMessage: string}>
         getSupportedCountries(userSecret:string): Promise<SupportedCountriesResponse[]>
         getKycVerificationStatus(userId:string, userSecret:string):Promise<KYCStatusResponse>
