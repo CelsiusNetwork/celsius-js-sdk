@@ -301,7 +301,7 @@ declare module 'celsius-sdk' {
         currencies: string[];
         getKycStatus(userSecret: string): Promise<KycStatus>;
         verifyKyc(userData: CelsiusKycUserData, documents: CelsiusKycFiles, userSecret: string): Promise<any>;
-        getSupportedCurrencies(): Promise<CelsiusSupportedCurrencies>;
+        getSupportedCurrencies(userSecret?: string): Promise<CelsiusSupportedCurrencies>;
         getBalanceSummary(userSecret: string): Promise<CelsiusBalanceSummaryResponse>;
         getCoinBalance(coin: string, userSecret: string): Promise<CelsiusCoinBalanceResponse>;
         getInterestSummary(userSecret: string): Promise<CelsiusInterestSummaryResponse>;
