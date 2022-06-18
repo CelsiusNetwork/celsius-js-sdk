@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2022-06-21
+### Added
+- Methods: 
+  - ```CelsiusInstance.getTermsOfUse(userSecret)``` returns latest ToU signed by user or latest ToU
+- Types: 
+  - `GetTermsOfUseResponse` with properties `terms_of_use_id`, `terms_of_use` and `confirmation_date`
+### Updated 
+- Methods: 
+  - ```CelsiusInstance.getSupportedCurrencies(userSecret)``` returns all currencies supported by Celsius or currencies available to user
+
 ## [1.0.0] - 2022-03-10
 ### Added 
 - Functionalities: 
